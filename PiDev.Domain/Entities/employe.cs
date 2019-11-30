@@ -1,4 +1,4 @@
-namespace Data
+namespace PiDev.Domain.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -12,8 +12,8 @@ namespace Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public employe()
         {
+            avis = new HashSet<avis>();
             workedon = new HashSet<workedon>();
-            test = new HashSet<test>();
         }
 
         [Key]
@@ -44,12 +44,12 @@ namespace Data
 
         public int? devTeam_idTeam { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<avis> avis { get; set; }
+
         public virtual devteam devteam { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<workedon> workedon { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<test> test { get; set; }
     }
 }

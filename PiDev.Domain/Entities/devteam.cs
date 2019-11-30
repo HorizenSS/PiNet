@@ -1,4 +1,4 @@
-namespace Data
+namespace PiDev.Domain.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -6,30 +6,29 @@ namespace Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("pidevds.project")]
-    public partial class project
+    [Table("pidevds.devteam")]
+    public partial class devteam
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public project()
+        public devteam()
         {
-            task = new HashSet<task>();
-            devteam = new HashSet<devteam>();
+            employe = new HashSet<employe>();
+            project = new HashSet<project>();
         }
 
         [Key]
-        public int idProject { get; set; }
-
-        public DateTime? DeadLine { get; set; }
-
-        public DateTime? LaunchedOn { get; set; }
+        public int idTeam { get; set; }
 
         [StringLength(255)]
-        public string projectName { get; set; }
+        public string Tech { get; set; }
+
+        [StringLength(255)]
+        public string technologie { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<task> task { get; set; }
+        public virtual ICollection<employe> employe { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<devteam> devteam { get; set; }
+        public virtual ICollection<project> project { get; set; }
     }
 }

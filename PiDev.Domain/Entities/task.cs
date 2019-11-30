@@ -1,4 +1,4 @@
-namespace Data
+namespace PiDev.Domain.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -6,33 +6,32 @@ namespace Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("pidevds.formation")]
-    public partial class formation
+    [Table("pidevds.task")]
+    public partial class task
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public formation()
+        public task()
         {
-            test = new HashSet<test>();
+            workedon = new HashSet<workedon>();
         }
 
         [Key]
-        public int idFormation { get; set; }
-
-        public DateTime? dateDebut { get; set; }
-
-        public DateTime? dateFin { get; set; }
+        public int idTask { get; set; }
 
         [StringLength(255)]
-        public string domaineFormation { get; set; }
+        public string description { get; set; }
 
         [StringLength(255)]
-        public string titleFormation { get; set; }
+        public string status { get; set; }
 
-        public int? former_idFormer { get; set; }
+        [StringLength(255)]
+        public string title { get; set; }
 
-        public virtual former former { get; set; }
+        public int? project_idProject { get; set; }
+
+        public virtual project project { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<test> test { get; set; }
+        public virtual ICollection<workedon> workedon { get; set; }
     }
 }

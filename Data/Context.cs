@@ -4,14 +4,16 @@ namespace Data
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using PiDev.Domain.Entities;
 
-    public partial class Model1 : DbContext
+    public partial class Context : DbContext
     {
-        public Model1()
+        public Context()
             : base("name=Context")
         {
         }
 
+        public virtual DbSet<avis> avis { get; set; }
         public virtual DbSet<client> client { get; set; }
         public virtual DbSet<demande> demande { get; set; }
         public virtual DbSet<devteam> devteam { get; set; }
@@ -20,17 +22,19 @@ namespace Data
         public virtual DbSet<formation> formation { get; set; }
         public virtual DbSet<former> former { get; set; }
         public virtual DbSet<project> project { get; set; }
+        public virtual DbSet<question> question { get; set; }
         public virtual DbSet<reclamationfrais> reclamationfrais { get; set; }
-        public virtual DbSet<settings> settings { get; set; }
+        public virtual DbSet<reponse> reponse { get; set; }
         public virtual DbSet<task> task { get; set; }
         public virtual DbSet<test> test { get; set; }
-        public virtual DbSet<ticket> ticket { get; set; }
-        public virtual DbSet<timesheet> timesheet { get; set; }
-        public virtual DbSet<user> user { get; set; }
         public virtual DbSet<workedon> workedon { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<avis>()
+                .Property(e => e.commentaire)
+                .IsUnicode(false);
+
             modelBuilder.Entity<client>()
                 .Property(e => e.Name)
                 .IsUnicode(false);
@@ -113,6 +117,11 @@ namespace Data
                 .Property(e => e.titleFormation)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<formation>()
+                .HasMany(e => e.test)
+                .WithOptional(e => e.formation)
+                .HasForeignKey(e => e.formation_idFormation);
+
             modelBuilder.Entity<former>()
                 .Property(e => e.lastNameFormer)
                 .IsUnicode(false);
@@ -139,6 +148,15 @@ namespace Data
                 .WithOptional(e => e.project)
                 .HasForeignKey(e => e.project_idProject);
 
+            modelBuilder.Entity<question>()
+                .Property(e => e.quesText)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<question>()
+                .HasMany(e => e.reponse)
+                .WithOptional(e => e.question)
+                .HasForeignKey(e => e.quest_idQues);
+
             modelBuilder.Entity<reclamationfrais>()
                 .Property(e => e.description)
                 .IsUnicode(false);
@@ -151,10 +169,9 @@ namespace Data
                 .Property(e => e.type)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<settings>()
-                .HasMany(e => e.timesheet)
-                .WithOptional(e => e.settings)
-                .HasForeignKey(e => e.settings_id);
+            modelBuilder.Entity<reponse>()
+                .Property(e => e.description)
+                .IsUnicode(false);
 
             modelBuilder.Entity<task>()
                 .Property(e => e.description)
@@ -174,79 +191,17 @@ namespace Data
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<test>()
-                .Property(e => e.Speciality)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<test>()
-                .Property(e => e.score)
+                .Property(e => e.descriptionTest)
                 .IsUnicode(false);
 
             modelBuilder.Entity<test>()
                 .Property(e => e.titeTest)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ticket>()
-                .Property(e => e.description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ticket>()
-                .Property(e => e.title)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<user>()
-                .Property(e => e.Firstname)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<user>()
-                .Property(e => e.LastName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<user>()
-                .Property(e => e.Phone)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<user>()
-                .Property(e => e.cin)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<user>()
-                .Property(e => e.grade)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<user>()
-                .Property(e => e.login)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<user>()
-                .Property(e => e.mail)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<user>()
-                .Property(e => e.password)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<user>()
-                .Property(e => e.role)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<user>()
-                .Property(e => e.speciality)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<user>()
-                .HasMany(e => e.ticket)
-                .WithOptional(e => e.user)
-                .HasForeignKey(e => e.employee_id);
-
-            modelBuilder.Entity<user>()
-                .HasMany(e => e.timesheet)
-                .WithOptional(e => e.user)
-                .HasForeignKey(e => e.owner_id);
-
-            modelBuilder.Entity<user>()
-                .HasMany(e => e.user1)
-                .WithOptional(e => e.user2)
-                .HasForeignKey(e => e.manager_id);
+            modelBuilder.Entity<test>()
+                .HasMany(e => e.question)
+                .WithOptional(e => e.test)
+                .HasForeignKey(e => e.testt_idTest);
         }
     }
 }

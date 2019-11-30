@@ -1,4 +1,4 @@
-namespace Data
+namespace PiDev.Domain.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -6,32 +6,28 @@ namespace Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("pidevds.task")]
-    public partial class task
+    [Table("pidevds.former")]
+    public partial class former
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public task()
+        public former()
         {
-            workedon = new HashSet<workedon>();
+            formation = new HashSet<formation>();
         }
 
         [Key]
-        public int idTask { get; set; }
+        public int idFormer { get; set; }
 
         [StringLength(255)]
-        public string description { get; set; }
+        public string lastNameFormer { get; set; }
 
         [StringLength(255)]
-        public string status { get; set; }
+        public string nameFormer { get; set; }
 
         [StringLength(255)]
-        public string title { get; set; }
-
-        public int? project_idProject { get; set; }
-
-        public virtual project project { get; set; }
+        public string specialty { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<workedon> workedon { get; set; }
+        public virtual ICollection<formation> formation { get; set; }
     }
 }

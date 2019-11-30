@@ -58,6 +58,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Entities\avis.cs" />
+    <Compile Include="Entities\client.cs" />
+    <Compile Include="Entities\demande.cs" />
+    <Compile Include="Entities\devteam.cs" />
+    <Compile Include="Entities\employe.cs" />
+    <Compile Include="Entities\expensesrecover.cs" />
+    <Compile Include="Entities\formation.cs" />
+    <Compile Include="Entities\former.cs" />
+    <Compile Include="Entities\project.cs" />
+    <Compile Include="Entities\question.cs" />
+    <Compile Include="Entities\reclamationfrais.cs" />
+    <Compile Include="Entities\reponse.cs" />
+    <Compile Include="Entities\task.cs" />
+    <Compile Include="Entities\test.cs" />
+    <Compile Include="Entities\workedon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
