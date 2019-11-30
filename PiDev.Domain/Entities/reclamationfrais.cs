@@ -1,4 +1,5 @@
-namespace Data
+namespace PiDev.Domain.Entities
+
 {
     using System;
     using System.Collections.Generic;
@@ -6,21 +7,19 @@ namespace Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("pidevds.client")]
-    public partial class client
+    [Table("pidevds.reclamationfrais")]
+    public partial class reclamationfrais
     {
         [Key]
-        public int idCl { get; set; }
+        public int idRec { get; set; }
 
         [StringLength(255)]
-        public string Name { get; set; }
+        public string description { get; set; }
 
         [StringLength(255)]
-        public string address { get; set; }
+        public string periority { get; set; }
 
         [StringLength(255)]
-        public string email { get; set; }
-
-        public int phNb { get; set; }
+        public string type { get; set; }
     }
 }

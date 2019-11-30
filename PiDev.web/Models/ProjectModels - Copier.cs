@@ -5,7 +5,7 @@ using System.Web;
 
 namespace PiDev.web.Models
 {
-    public class ProjectModels
+    public class TicketM
     {
     }
 }
