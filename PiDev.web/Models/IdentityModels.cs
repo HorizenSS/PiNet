@@ -29,5 +29,7 @@ namespace PiDev.web.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<PiDev.Domain.Entities.test> tests { get; set; }
     }
 }

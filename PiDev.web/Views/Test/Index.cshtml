@@ -1,0 +1,87 @@
+﻿@model IEnumerable<PiDev.web.Models.Test>
+
+@{
+    ViewBag.Title = "Tests";
+}
+
+<h2>Tests</h2>
+
+<p>
+    @Html.ActionLink("Ajouter test", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            idTest
+        </th>
+        <th>
+            descriptionTest
+        </th>
+        <th>
+            titeTest
+        </th>
+        <th>
+            Formation
+        </th>
+        <th>
+            Action(1)
+        </th>
+        <th>
+            Action(2)
+        </th>
+    </tr>
+
+    @foreach (var item in ViewBag.result)
+    {
+        <tr>
+            <td>
+                @item.idTest
+            </td>
+            <td>
+                @item.descriptionTest
+            </td>
+            <td>
+                @item.titeTest
+            </td>
+            <td>
+                @if (item.formation != null)
+                {
+                    @item.formation.titleFormation
+
+                }
+                else
+                {
+                    <a href="@Url.Action( "AddFormation","Test", new { id=item.idTest })" class="btn btn-warning">Affecter</a>
+                }
+            </td>
+            <td>
+              
+                <a href="@Url.Action("Edit", "Test",new { id = item.idTest })" class="btn btn-info">Modifier</a>
+             </td>
+            <td>|
+                <a href="@Url.Action("Delete", "Test",new { id = item.idTest })" class="btn btn-danger">Supprimer</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section scripts{
+
+    <script>
+        $(function () {
+            var sm = '@TempData["SM"]';
+            if (sm != '')
+                alertify.success(sm);
+        })
+
+        function Delet(id,desc,title)
+        {
+            alertify.confirm('supression de Test', 'Vous Voulez vraimant supprimer ' + title, function () {
+                window.location.href = ' @Url.Action("Delete", "Test")/'+id;
+            },null)
+        }
+         
+    </script>
+
+}

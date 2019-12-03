@@ -14,11 +14,8 @@ namespace PiDev.web.Models
 
         public string titeTest { get; set; }
 
-        public int? formation_idFormation { get; set; }
 
         public virtual formation formation { get; set; }
-
-        public virtual ICollection<question> question { get; set; }
 
     }
 }
