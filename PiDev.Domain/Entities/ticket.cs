@@ -18,16 +18,16 @@ namespace PiDev.Domain.Entities
         [Column(TypeName = "date")]
         public DateTime? date { get; set; }
 
-        [StringLength(255)]
+       
         public string description { get; set; }
 
-        public int estimatedHours { get; set; }
+       public int estimatedHours { get; set; }
 
-        public int? status { get; set; }
+        public string status { get; set; }
 
-        [StringLength(255)]
+     
         public string title { get; set; }
-
+       
         public int? employee_id { get; set; }
 
         public virtual user user { get; set; }

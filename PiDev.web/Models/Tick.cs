@@ -9,9 +9,11 @@ namespace PiDev.web.Models
 {
     public class Tick {
 
+
         public int id { get; set; }
 
-        
+        public string title { get; set; }
+
         public bool assignement { get; set; }
 
        
@@ -22,14 +24,13 @@ namespace PiDev.web.Models
 
         public int estimatedHours { get; set; }
 
-        public int? status { get; set; }
+        public String status { get; set; }
 
        
-        public string title { get; set; }
+        
 
-        public int? employee_id { get; set; }
-
-        public virtual user user { get; set; }
+      
+        public virtual user employee { get; set; }
 
     }
 }

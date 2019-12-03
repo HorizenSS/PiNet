@@ -1,0 +1,69 @@
+﻿@model IEnumerable<PiDev.web.Models.Tick>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "tickets")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.assignement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estimatedHours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employee.cin)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in ViewBag.result) {
+    <tr>
+        <td>
+            @item.assignement
+        </td>
+        <td>
+            @item.date
+        </td>
+        <td>
+            @item.description
+        </td>
+        <td>
+            @item.estimatedHours
+        </td>
+        <td>
+            @item.status
+        </td>
+        <td>
+            @item.title
+        </td>
+        <td>
+            @item.employee_id
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
