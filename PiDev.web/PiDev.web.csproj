@@ -224,6 +224,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjetController.cs" />
+    <Compile Include="Controllers\settingsController.cs" />
     <Compile Include="Controllers\ticketsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -357,6 +358,16 @@
     <Content Include="Views\tickets\Details.cshtml" />
     <Content Include="Views\tickets\Edit.cshtml" />
     <Content Include="Views\tickets\Index.cshtml" />
+    <Content Include="Views\settings\Create.cshtml" />
+    <Content Include="Views\settings\Delete.cshtml" />
+    <Content Include="Views\settings\Details.cshtml" />
+    <Content Include="Views\settings\Edit.cshtml" />
+    <Content Include="Views\settings\Index.cshtml" />
+    <Content Include="Views\tests\Create.cshtml" />
+    <Content Include="Views\tests\Delete.cshtml" />
+    <Content Include="Views\tests\Details.cshtml" />
+    <Content Include="Views\tests\Edit.cshtml" />
+    <Content Include="Views\tests\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

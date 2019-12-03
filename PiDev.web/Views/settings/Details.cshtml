@@ -1,0 +1,91 @@
+﻿@model PiDev.Domain.Entities.settings
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdvyTeam.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>settings</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.breakTime_hours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.breakTime_hours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.breakTime_minutes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.breakTime_minutes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dailyLimit_hours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dailyLimit_hours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dailyLimit_minutes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dailyLimit_minutes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.doubleOvertimeRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.doubleOvertimeRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.overtimeRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.overtimeRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.regularRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.regularRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.weeklyLimit_hours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.weeklyLimit_hours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.weeklyLimit_minutes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.weeklyLimit_minutes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<PiDev.Domain.Entities.settings>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdvyTeam.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.breakTime_hours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.breakTime_minutes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dailyLimit_hours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dailyLimit_minutes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.doubleOvertimeRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.overtimeRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.regularRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.weeklyLimit_hours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.weeklyLimit_minutes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.breakTime_hours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.breakTime_minutes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dailyLimit_hours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dailyLimit_minutes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.doubleOvertimeRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.overtimeRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.regularRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.weeklyLimit_hours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.weeklyLimit_minutes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -24,5 +24,13 @@ namespace PiDev.Data
         public System.Data.Entity.DbSet<PiDev.web.Models.Tick> Ticks { get; set; }
 
         public System.Data.Entity.DbSet<PiDev.Domain.Entities.task> tasks { get; set; }
+
+        public System.Data.Entity.DbSet<PiDev.Domain.Entities.settings> settings { get; set; }
+
+        public System.Data.Entity.DbSet<PiDev.Domain.Entities.test> tests { get; set; }
+
+        public System.Data.Entity.DbSet<PiDev.Domain.Entities.employe> employes { get; set; }
+
+        public System.Data.Entity.DbSet<PiDev.Domain.Entities.formation> formations { get; set; }
     }
 }

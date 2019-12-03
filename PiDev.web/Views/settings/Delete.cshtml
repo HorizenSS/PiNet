@@ -1,0 +1,97 @@
+﻿@model PiDev.Domain.Entities.settings
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdvyTeam.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>settings</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.breakTime_hours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.breakTime_hours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.breakTime_minutes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.breakTime_minutes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dailyLimit_hours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dailyLimit_hours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dailyLimit_minutes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dailyLimit_minutes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.doubleOvertimeRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.doubleOvertimeRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.overtimeRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.overtimeRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.regularRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.regularRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.weeklyLimit_hours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.weeklyLimit_hours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.weeklyLimit_minutes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.weeklyLimit_minutes)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
