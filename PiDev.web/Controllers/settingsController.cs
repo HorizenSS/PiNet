@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using PiDev.Data;
+using Data;
 using PiDev.Domain.Entities;
 
 namespace PiDev.web.Controllers

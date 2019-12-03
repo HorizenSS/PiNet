@@ -15,7 +15,7 @@ namespace PiDev.Data
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
     
-        public Model1() : base("name=Model1")
+        public Model1() : base("name=Context")
         {
         }
 
@@ -24,13 +24,5 @@ namespace PiDev.Data
         public System.Data.Entity.DbSet<PiDev.web.Models.Tick> Ticks { get; set; }
 
         public System.Data.Entity.DbSet<PiDev.Domain.Entities.task> tasks { get; set; }
-
-        public System.Data.Entity.DbSet<PiDev.Domain.Entities.settings> settings { get; set; }
-
-        public System.Data.Entity.DbSet<PiDev.Domain.Entities.test> tests { get; set; }
-
-        public System.Data.Entity.DbSet<PiDev.Domain.Entities.employe> employes { get; set; }
-
-        public System.Data.Entity.DbSet<PiDev.Domain.Entities.formation> formations { get; set; }
     }
 }

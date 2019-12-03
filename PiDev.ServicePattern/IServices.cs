@@ -20,6 +20,6 @@ namespace PiDev.ServicePattern
         void Delete(Expression<Func<T, bool>> Condition);
         IEnumerable<T> GetAll();
         void Commit();
-        void dispose()
+        void dispose();
     }
 }
