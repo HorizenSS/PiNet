@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelProject.Data.Infrastructure
+namespace Data.Infrastructure
 {
     public class DataBaseFactory: Disposable, IDataBaseFactory
     {
-        MyDBContext ctxt;
+        Context ctxt;
 
-        public MyDBContext Ctxt
+        public Context Ctxt
         {
             get
             {
@@ -20,13 +20,18 @@ namespace HotelProject.Data.Infrastructure
 
         public DataBaseFactory()
         {
-            ctxt = new MyDBContext();
+            ctxt = new Context();
         }
 
         public override void DisposeCore()
         {
             if (ctxt != null)
                 ctxt.Dispose();
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
 }

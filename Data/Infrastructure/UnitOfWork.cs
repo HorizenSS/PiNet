@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelProject.Data.Infrastructure
+namespace Data.Infrastructure
 {
     public class UnitOfWork: IUnitOfWork
     {

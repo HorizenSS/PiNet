@@ -224,6 +224,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjetController.cs" />
+    <Compile Include="Controllers\questionsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -375,6 +376,11 @@
     <Content Include="Views\Test\Create.cshtml" />
     <Content Include="Views\Test\Edit.cshtml" />
     <Content Include="Views\Test\AddFormation.cshtml" />
+    <Content Include="Views\questions\Create.cshtml" />
+    <Content Include="Views\questions\Delete.cshtml" />
+    <Content Include="Views\questions\Details.cshtml" />
+    <Content Include="Views\questions\Edit.cshtml" />
+    <Content Include="Views\questions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -390,6 +396,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{7c5a167a-ec32-4dbc-aabf-4a17a8085f75}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PiDev.Domain\PiDev.Domain.csproj">
       <Project>{449dc901-2878-4fb5-b81e-8cdc1aeecea8}</Project>
       <Name>PiDev.Domain</Name>

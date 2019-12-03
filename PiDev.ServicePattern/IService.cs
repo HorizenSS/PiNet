@@ -5,10 +5,11 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Infrastructure
+namespace Service.Pattern
 {
-    public interface IRepositoryBase<T> where T : class
+    public interface IService<T> where T : class
     {
+        //crud
         void Add(T Entity);
         T GetById(int id);
         T GetById(string id);
@@ -19,5 +20,6 @@ namespace Data.Infrastructure
         void Delete(Expression<Func<T, bool>> Condition);
         IEnumerable<T> GetAll();
         void Commit();
+        void dispose();        
     }
 }

@@ -6,11 +6,11 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelProject.Data.Infrastructure
+namespace Data.Infrastructure
 {
     public class RepositoryBase<T>: IRepositoryBase<T> where T : class
     {
-        MyDBContext ctx;
+        Context ctx;
         readonly DbSet<T> dbset;
         public RepositoryBase(IDataBaseFactory Factory)
         {
