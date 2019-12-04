@@ -7,131 +7,112 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Data;
-using Data.Infrastructure;
 using PiDev.Domain.Entities;
-using Service.Pattern;
+using PiDev.Service;
 
 namespace PiDev.web.Controllers
 {
-    public class reponsesController : Controller
+    public class usersController : Controller
     {
         private Context db = new Context();
 
-        // GET: reponses
+        // GET: users
         public ActionResult Index()
         {
-            /*var reponse = db.reponse.Include(r => r.question);
-            return View(reponse.ToList());*/
-            return View(db.reponse.ToList());
+            return View(db.user.ToList());
         }
 
-        // GET: reponses/Details/5
+        // GET: users/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            reponse reponse = db.reponse.Find(id);
-            if (reponse == null)
+            user user = db.user.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(reponse);
+            return View(user);
         }
 
-        // GET: reponses/Create
+        // GET: users/Create
         public ActionResult Create()
         {
-            ViewBag.quest_idQues = new SelectList(db.question, "idQues", "quesText");
             return View();
         }
 
-        // POST: reponses/Create
+        // POST: users/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idRep,description,isValide,quest_idQues")] reponse reponse)
+        public ActionResult Create([Bind(Include = "id,email,password,role")] user user)
         {
-            /* if (ModelState.IsValid)
-             {
-                 db.reponse.Add(reponse);
-                 db.SaveChanges();
-                 return RedirectToAction("Index");
-             }
-
-             ViewBag.quest_idQues = new SelectList(db.question, "idQues", "quesText", reponse.quest_idQues);
-             return View(reponse);*/
-
-            IDataBaseFactory Factory = new DataBaseFactory();
-            IUnitOfWork Uok = new UnitOfWork(Factory);
-            IService<reponse> questionService = new Service<reponse>(Uok);
             if (ModelState.IsValid)
             {
-                questionService.Add(reponse);
-                questionService.Commit();
+                db.user.Add(user);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            //ViewBag.testt_idTest = new SelectList(db.test, "idTest", "descriptionTest", question.testt_idTest);
-            return View(reponse);
+
+            return View(user);
         }
 
-        // GET: reponses/Edit/5
+        // GET: users/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            reponse reponse = db.reponse.Find(id);
-            if (reponse == null)
+            user user = db.user.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.quest_idQues = new SelectList(db.question, "idQues", "quesText", reponse.quest_idQues);
-            return View(reponse);
+            return View(user);
         }
 
-        // POST: reponses/Edit/5
+        // POST: users/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idRep,description,isValide,quest_idQues")] reponse reponse)
+        public ActionResult Edit([Bind(Include = "id,email,password,role")] user user)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(reponse).State = EntityState.Modified;
+                db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.quest_idQues = new SelectList(db.question, "idQues", "quesText", reponse.quest_idQues);
-            return View(reponse);
+            return View(user);
         }
 
-        // GET: reponses/Delete/5
+        // GET: users/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            reponse reponse = db.reponse.Find(id);
-            if (reponse == null)
+            user user = db.user.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(reponse);
+            return View(user);
         }
 
-        // POST: reponses/Delete/5
+        // POST: users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            reponse reponse = db.reponse.Find(id);
-            db.reponse.Remove(reponse);
+            user user = db.user.Find(id);
+            db.user.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -144,5 +125,65 @@ namespace PiDev.web.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        public ActionResult Login(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
+        }
+
+        //
+        // POST: /Users/Login
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login([Bind(Include = "Password,Email")] user user)
+        {
+            if (ModelState.IsValid)
+            {
+                userService us = new userService();
+                user user3 = us.FindRoleByName(user.email);
+                if (user.password == user3.password)
+                {
+                    if (user3.role == "hm")
+                    {
+                        return RedirectToAction("LoginAdmin");
+                    }
+                    else if (user3.role == "fr")
+                    {
+                        return RedirectToAction("loginClient");
+                    }
+                    else
+                    {
+                        return View(user);
+                    }
+                }
+
+
+            }
+
+            return View(user);
+        }
+
+        public ActionResult loginAdmin()
+        {
+
+
+
+            return RedirectToAction("Index", "questions");
+
+        }
+        public ActionResult loginClient()
+        {
+
+
+
+            return RedirectToAction("Index", "reponses");
+
+        }
+
     }
+
+   
 }

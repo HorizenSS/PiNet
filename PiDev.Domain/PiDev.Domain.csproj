@@ -72,6 +72,7 @@
     <Compile Include="Entities\reponse.cs" />
     <Compile Include="Entities\task.cs" />
     <Compile Include="Entities\test.cs" />
+    <Compile Include="Entities\user.cs" />
     <Compile Include="Entities\workedon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

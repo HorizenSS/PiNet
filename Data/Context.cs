@@ -12,7 +12,7 @@ namespace Data
             
         {
         }
-
+        public virtual DbSet<user> user { get; set; }
         public virtual DbSet<avis> avis { get; set; }
         public virtual DbSet<client> client { get; set; }
         public virtual DbSet<demande> demande { get; set; }
