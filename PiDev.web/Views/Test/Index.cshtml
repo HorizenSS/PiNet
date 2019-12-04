@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<PiDev.web.Models.Test>
 
 @{
+    Layout = "~/Views/Shared/_LayoutAdvyTeam.cshtml";
     ViewBag.Title = "Tests";
 }
 
@@ -58,8 +59,10 @@
               
                 <a href="@Url.Action("Edit", "Test",new { id = item.idTest })" class="btn btn-info">Modifier</a>
              </td>
-            <td>|
-                <a href="@Url.Action("Delete", "Test",new { id = item.idTest })" class="btn btn-danger">Supprimer</a>
+            <td>
+                |
+                
+                <a onclick="Delet( @item.idTest,'@item.titeTest') " class="btn btn-danger">Supprimer</a>
             </td>
         </tr>
     }
@@ -75,9 +78,9 @@
                 alertify.success(sm);
         })
 
-        function Delet(id,desc,title)
+        function Delet(id,title)
         {
-            alertify.confirm('supression de Test', 'Vous Voulez vraimant supprimer ' + title, function () {
+            alertify.confirm('supression de Test', 'Vous voulez vraimant supprimer ' + title, function () {
                 window.location.href = ' @Url.Action("Delete", "Test")/'+id;
             },null)
         }
