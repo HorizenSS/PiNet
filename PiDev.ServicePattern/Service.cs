@@ -96,7 +96,7 @@ namespace PiDev.ServicePattern
 
         public T GetById(int id)
         {
-            throw new NotImplementedException();
+            return utwk.getRepository<T>().GetById(id);
         }
 
         public void Update(T Entity)

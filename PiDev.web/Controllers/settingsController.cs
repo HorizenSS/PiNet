@@ -175,10 +175,40 @@ namespace PiDev.web.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
-        {
+        {/*
             settings settings = db.settings.Find(id);
             db.settings.Remove(settings);
             db.SaveChanges();
+            return RedirectToAction("Index");
+            IDatabaseFactory Factory = new DatabaseFactory();
+            IUnitOfWork Uok = new UnitOfWork(Factory);
+            IServices<settings> QService = new Service<settings>(Uok);
+            QService.Delete(QService.GetById(id));
+            QService.Commit();
+
+            return RedirectToAction("Index");*/
+            //try again bb
+            IDatabaseFactory Factory = new DatabaseFactory();
+            IUnitOfWork Uok = new UnitOfWork(Factory);
+            IServices<settings> QService = new Service<settings>(Uok);
+            List<timesheet> appo = new List<timesheet>();
+            IServices<timesheet> jbService = new Service<timesheet>(Uok);
+            List<timesheet> j = new List<timesheet>();
+            appo = jbService.GetAll().ToList();
+            for (int i = appo.Count - 1; i >= 0; i--)
+            {
+                if (appo[i].settings_id == id)
+                {
+
+                    j.Remove(appo[i]);
+
+                }
+
+            }
+            //----
+            QService.Delete(QService.GetById(id));
+            QService.Commit();
+
             return RedirectToAction("Index");
         }
 
