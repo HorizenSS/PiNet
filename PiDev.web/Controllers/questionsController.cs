@@ -7,7 +7,10 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Data;
+using Data.Infrastructure;
 using PiDev.Domain.Entities;
+using Service.Pattern;
+using PiDev.Service;
 
 namespace PiDev.web.Controllers
 {
@@ -18,8 +21,10 @@ namespace PiDev.web.Controllers
         // GET: questions
         public ActionResult Index()
         {
-            var question = db.question.Include(q => q.test);
-            return View(question.ToList());
+            /*var question = db.question.Include(q => q.test);
+            return View(question.ToList());*/
+            return View(db.question.ToList());
+            
         }
 
         // GET: questions/Details/5
@@ -40,6 +45,7 @@ namespace PiDev.web.Controllers
         // GET: questions/Create
         public ActionResult Create()
         {
+            //ana na7etha
             ViewBag.testt_idTest = new SelectList(db.test, "idTest", "descriptionTest");
             return View();
         }
@@ -51,31 +57,58 @@ namespace PiDev.web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "idQues,quesText,testt_idTest")] question question)
         {
+            /* if (ModelState.IsValid)
+             {
+                 db.question.Add(question);
+                 db.SaveChanges();
+                 return RedirectToAction("Index");
+             }
+
+             ViewBag.testt_idTest = new SelectList(db.test, "idTest", "descriptionTest", question.testt_idTest);
+             return View(question);*/
+
+            IDataBaseFactory Factory = new DataBaseFactory();
+            IUnitOfWork Uok = new UnitOfWork(Factory);
+            IService<question> questionService = new Service<question>(Uok);
             if (ModelState.IsValid)
             {
-                db.question.Add(question);
-                db.SaveChanges();
+                questionService.Add(question);
+                questionService.Commit();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.testt_idTest = new SelectList(db.test, "idTest", "descriptionTest", question.testt_idTest);
+            //ViewBag.testt_idTest = new SelectList(db.test, "idTest", "descriptionTest", question.testt_idTest);
             return View(question);
         }
 
         // GET: questions/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            question question = db.question.Find(id);
-            if (question == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.testt_idTest = new SelectList(db.test, "idTest", "descriptionTest", question.testt_idTest);
-            return View(question);
+            /* if (id == null)
+             {
+                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+             }
+             question question = db.question.Find(id);
+             if (question == null)
+             {
+                 return HttpNotFound();
+             }
+             ViewBag.testt_idTest = new SelectList(db.test, "idTest", "descriptionTest", question.testt_idTest);
+             return View(question);*/
+
+            //hello
+             if (id == null)
+             {
+                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+             }
+             question question = db.question.Find(id);
+
+             if (question == null)
+             {
+                 return HttpNotFound();
+             }
+             ViewBag.testt_idTest = new SelectList(db.test, "idTest", "descriptionTest", question.testt_idTest);
+             return View(question);
+            
         }
 
         // POST: questions/Edit/5
@@ -85,14 +118,30 @@ namespace PiDev.web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "idQues,quesText,testt_idTest")] question question)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(question).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.testt_idTest = new SelectList(db.test, "idTest", "descriptionTest", question.testt_idTest);
-            return View(question);
+            /* if (ModelState.IsValid)
+             {
+                 db.Entry(question).State = EntityState.Modified;
+                 db.SaveChanges();
+                 return RedirectToAction("Index");
+             }
+             ViewBag.testt_idTest = new SelectList(db.test, "idTest", "descriptionTest", question.testt_idTest);
+             return View(question);*/
+            /* if (ModelState.IsValid)
+             {
+                 db.Entry(question).State = EntityState.Modified;
+                 db.SaveChanges();
+                 return RedirectToAction("Index");
+             }
+
+             return View(question);*/
+
+            //tejrba
+            IDataBaseFactory Factory = new DataBaseFactory();
+            IUnitOfWork Uok = new UnitOfWork(Factory);
+            IService<question> QService = new Service<question>(Uok);
+            QService.Update(question);
+            QService.Commit();
+            return RedirectToAction("Index");
         }
 
         // GET: questions/Delete/5
@@ -107,6 +156,7 @@ namespace PiDev.web.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.testt_idTest = new SelectList(db.test, "idTest", "descriptionTest", question.testt_idTest);
             return View(question);
         }
 
@@ -115,9 +165,41 @@ namespace PiDev.web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            question question = db.question.Find(id);
-            db.question.Remove(question);
-            db.SaveChanges();
+            /* question question = db.question.Find(id);
+             db.question.Remove(question);
+             db.SaveChanges();
+             return RedirectToAction("Index");*/
+
+            IDataBaseFactory Factory = new DataBaseFactory();
+            IUnitOfWork Uok = new UnitOfWork(Factory);
+            IService<question> QService = new Service<question>(Uok);
+            // IService<reponse> RService = new Service<reponse>(Uok);
+            // RService.Delete(RService.GetById(id));
+            //zyede
+            /*IQuestion RrService = new questionService(Uok) ;
+            RrService.reponseD(id);*/
+            //db.SaveChanges();
+            //---
+
+            //try again bb
+            List<reponse> appo = new List<reponse>();
+            IService<reponse> jbService = new Service<reponse>(Uok);
+            List<reponse> j = new List<reponse>();
+            appo = jbService.GetAll().ToList() ;
+            for (int i = appo.Count - 1; i >= 0; i--)
+            {
+                if (appo[i].quest_idQues == id)
+                {
+                   
+                    j.Remove(appo[i]);
+
+                  }           
+                
+            }
+            //----
+            QService.Delete(QService.GetById(id));
+            QService.Commit();
+
             return RedirectToAction("Index");
         }
 
