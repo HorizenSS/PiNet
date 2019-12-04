@@ -10,73 +10,84 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.breakTime_hours)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.breakTime_minutes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dailyLimit_hours)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dailyLimit_minutes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.doubleOvertimeRate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.overtimeRate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.regularRate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.weeklyLimit_hours)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.weeklyLimit_minutes)
-        </th>
-        <th></th>
-    </tr>
+<body>
+    <div class="container">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.breakTime_hours)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.breakTime_minutes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dailyLimit_hours)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dailyLimit_minutes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.doubleOvertimeRate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.overtimeRate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.regularRate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.weeklyLimit_hours)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.weeklyLimit_minutes)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
 
-</table>
+
+
+        <table class="table " id="table_id">
+            <thead class="thead-light">
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.doubleOvertimeRate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.overtimeRate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.regularRate)
+                    </th>
+
+                    <th></th>
+                </tr>
+                </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.doubleOvertimeRate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.overtimeRate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.regularRate)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                        </td>
+                    </tr>
+                }
+                </tbody>
+        </table>
+        </div>
+        @section scripts{
+
+            <script>
+        $(function () {
+            var sm = '@TempData["SM"]';
+            if (sm != '')
+                alertify.success(sm);
+        })
+
+        function Delet(id,desc)
+        {
+            alertify.confirm('supression de Formation','Vous Voulez vraiment supprimer l id '+desc+" ?",function(){
+                window.location.href = '   @Url.Action("Delete", "setting")/'+id;
+            },null)
+        }
+
+
+            </script>
+            <script>
+                $(document).ready(function () {
+                    $('#table_id').DataTable({
+
+                        "aLengthMenu": [[3, 5, 10], [3, 5, 10, 25, "All"]],
+                        "iDisplayLength": 1,
+
+                    });
+                });
+            </script>
+            </body>
+
+        }
+
+

@@ -58,9 +58,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{7C5A167A-EC32-4DBC-AABF-4A17A8085F75}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PiDev.Domain\PiDev.Domain.csproj">
       <Project>{449dc901-2878-4fb5-b81e-8cdc1aeecea8}</Project>
       <Name>PiDev.Domain</Name>

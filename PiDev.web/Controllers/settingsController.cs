@@ -156,6 +156,7 @@ namespace PiDev.web.Controllers
             QService.Commit();
             return RedirectToAction("Index");
         }
+
         // GET: settings/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -185,7 +186,6 @@ namespace PiDev.web.Controllers
             IServices<settings> QService = new Service<settings>(Uok);
             QService.Delete(QService.GetById(id));
             QService.Commit();
-
             return RedirectToAction("Index");*/
             //try again bb
             IDatabaseFactory Factory = new DatabaseFactory();
@@ -211,7 +211,6 @@ namespace PiDev.web.Controllers
 
             return RedirectToAction("Index");
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
