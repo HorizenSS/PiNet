@@ -7,8 +7,10 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Data;
+using Data.Infrastructure;
 using PiDev.Domain.Entities;
 using PiDev.Service;
+using PiDev.ServicePattern;
 
 namespace PiDev.web.Controllers
 {
@@ -146,6 +148,11 @@ namespace PiDev.web.Controllers
         {
             if (ModelState.IsValid)
             {
+                IDatabaseFactory Factory = new DatabaseFactory();
+                IUnitOfWork Uok = new UnitOfWork(Factory);
+                IServices<timesheet> jbService = new Service<timesheet>(Uok);
+                TimeServices ts = new TimeServices();
+
                 UserService us = new UserService();
                 user user3 = us.FindRoleByName(user.login);
                 if (user.password == user3.password)
@@ -156,6 +163,14 @@ namespace PiDev.web.Controllers
                     }
                     else if (user3.role == "Employee")
                     {
+                    
+
+                        timesheet timesheet = new timesheet();
+                        ts.addLog(timesheet, user3);
+                        
+                       
+
+
                         return RedirectToAction("loginClient");
                     }
                     else

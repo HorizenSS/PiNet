@@ -1,69 +1,109 @@
 ﻿@model IEnumerable<PiDev.web.Models.Tick>
 
 @{
-    ViewBag.Title = "Index";
+                /**/
+
+                ViewBag.Title = "Index";
+
+                Layout = "~/Views/Shared/_LayoutAdvyTeamM.cshtml";
 }
 
-<h2>Index</h2>
+
+<h2>Your Team's Tasks</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create", "tickets")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.assignement)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estimatedHours)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.employee.cin)
-        </th>
-        <th></th>
-    </tr>
+<body>
 
-@foreach (var item in ViewBag.result) {
-    <tr>
-        <td>
-            @item.assignement
-        </td>
-        <td>
-            @item.date
-        </td>
-        <td>
-            @item.description
-        </td>
-        <td>
-            @item.estimatedHours
-        </td>
-        <td>
-            @item.status
-        </td>
-        <td>
-            @item.title
-        </td>
-        <td>
-            @item.employee_id
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    <table class="table " id="table_id">
+        <thead class="thead-light">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.assignement)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.estimatedHours)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.employee.cin)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.result)
+            {
+                <tr>
+                    <td>
+                        @item.assignement
+                    </td>
+                    <td>
+                        @item.date
+                    </td>
+                    <td>
+                        @item.description
+                    </td>
+                    <td>
+                        @item.estimatedHours
+                    </td>
+                    <td>
+                        @item.status
+                    </td>
+                    <td>
+                        @item.title
+                    </td>
+                    <td>
+                        @item.employee_id
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Delete", "tickets",new { id = item.id })" class="btn btn-danger">Delete</a>
 
-</table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @section scripts{
+
+        <script>
+        $(function () {
+            var sm = '@TempData["SM"]';
+            <a href="~/Views/tickets/Index.cshtml">~/Views/tickets/Index.cshtml</a>
+            if (sm != '')
+                alertify.success(sm);
+        })
+
+        function Delet(id,desc)
+        {
+            alertify.confirm('supression de Formation','Vous Voulez vraiment supprimer l id '+desc+" ?",function(){
+                window.location.href = '   @Url.Action("Delete", "setting")/'+id;
+            },null)
+        }
+
+
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#table_id').DataTable({
+
+                    "aLengthMenu": [[3, 5, 10], [3, 5, 10, 25, "All"]],
+                    "iDisplayLength": 1,
+
+                });
+            });
+        </script>
+    </body>
+    }

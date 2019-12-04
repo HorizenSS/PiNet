@@ -9,8 +9,10 @@ namespace PiDev.web.Models
 {
     public class Tick {
 
-
+        
         public int id { get; set; }
+
+        [Required(ErrorMessage = "Field should not be empty")]
 
         public string title { get; set; }
 

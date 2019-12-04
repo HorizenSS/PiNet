@@ -17,7 +17,7 @@ namespace PiDev.Domain.Entities
         }
 
         public int id { get; set; }
-
+       
         public int breakTime_hours { get; set; }
 
         public int breakTime_minutes { get; set; }
@@ -25,7 +25,7 @@ namespace PiDev.Domain.Entities
         public int dailyLimit_hours { get; set; }
 
         public int dailyLimit_minutes { get; set; }
-
+        [Required(ErrorMessage = "Field should not be empty")]
         public double doubleOvertimeRate { get; set; }
 
         public double overtimeRate { get; set; }

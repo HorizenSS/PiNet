@@ -550,6 +550,8 @@
     <Content Include="Views\tests\Edit.cshtml" />
     <Content Include="Views\tests\Index.cshtml" />
     <Content Include="Views\users\Login.cshtml" />
+    <Content Include="Views\Shared\_LayoutLog.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdvyTeamM.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

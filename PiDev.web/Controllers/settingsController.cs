@@ -10,6 +10,7 @@ using Data;
 using Data.Infrastructure;
 using PiDev.Domain.Entities;
 using PiDev.ServicePattern;
+using PiDev.Service;
 
 namespace PiDev.web.Controllers
 {
@@ -110,6 +111,31 @@ namespace PiDev.web.Controllers
                 return RedirectToAction("Index");
             }
             return View(settings);
+        }
+        */
+
+
+
+            /*
+        public ActionResult Test15()
+        {
+
+
+
+            DatabaseFactory Factory = new DatabaseFactory();
+            UnitOfWork Uok = new UnitOfWork(Factory);
+
+
+            TicketService TService = new TicketService(Uok);
+
+            String a = "en cours";
+            String b = "finished";
+
+
+            ViewBag.countEncours = TService.GetEtat(a).ToList().Count();
+            ViewBag.countFinished = TService.GetEtat(b).ToList().Count();
+
+            return View();
         }
         */
         // GET: Promotion/Edit/5

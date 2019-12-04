@@ -12,9 +12,9 @@ namespace PiDev.Domain.Entities
     {
         public int id { get; set; }
 
-        public TimeSpan? clock_in { get; set; }
+        public DateTime? clock_in { get; set; }
 
-        public TimeSpan? clock_out { get; set; }
+        public DateTime? clock_out { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? day { get; set; }

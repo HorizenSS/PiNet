@@ -25,7 +25,8 @@ namespace PiDev.Domain.Entities
 
         public string status { get; set; }
 
-     
+        [Required(ErrorMessage = "Field should not be empty")]
+
         public string title { get; set; }
        
         public int? employee_id { get; set; }
