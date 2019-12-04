@@ -190,7 +190,7 @@ namespace PiDev.web.Controllers
             {
                 if (appo[i].quest_idQues == id)
                 {
-                   
+
                     j.Remove(appo[i]);
 
                   }           
