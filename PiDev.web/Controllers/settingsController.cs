@@ -7,13 +7,17 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Data;
+using Data.Infrastructure;
 using PiDev.Domain.Entities;
+using PiDev.ServicePattern;
 
 namespace PiDev.web.Controllers
 {
     public class settingsController : Controller
     {
         private Model1 db = new Model1();
+     
+       
 
         // GET: settings
         public ActionResult Index()
@@ -41,7 +45,7 @@ namespace PiDev.web.Controllers
         {
             return View();
         }
-
+/*
         // POST: settings/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -73,7 +77,25 @@ namespace PiDev.web.Controllers
             }
             return View(settings);
         }
+      */
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "id,breakTime_hours,breakTime_minutes,dailyLimit_hours,dailyLimit_minutes,doubleOvertimeRate,overtimeRate,regularRate,weeklyLimit_hours,weeklyLimit_minutes")] settings settings)
+        {
+            IDatabaseFactory Factory = new DatabaseFactory();
+            IUnitOfWork Uok = new UnitOfWork(Factory);
+            IServices<settings> fService = new Service<settings>(Uok);
+            if (ModelState.IsValid)
+            {
+                fService.Add(settings);
+                fService.Commit();
+                return RedirectToAction("Index");
+            }
 
+            return View(settings);
+        }
+
+        /*
         // POST: settings/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -89,7 +111,51 @@ namespace PiDev.web.Controllers
             }
             return View(settings);
         }
+        */
+        // GET: Promotion/Edit/5
+        public ActionResult Edit(int id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            settings question = db.settings.Find(id);
 
+            if (question == null)
+            {
+                return HttpNotFound();
+            }
+            
+            return View(question);
+        }
+        // POST: Promotion/Edit/5
+        [HttpPost]
+        public ActionResult Edit([Bind(Include = "id,breakTime_hours,breakTime_minutes,dailyLimit_hours,dailyLimit_minutes,doubleOvertimeRate,overtimeRate,regularRate,weeklyLimit_hours,weeklyLimit_minutes")] settings settings)
+        {/*
+
+             if (id == null)
+             {
+                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+             }
+             IDatabaseFactory Factory = new DatabaseFactory();
+             IUnitOfWork Uok = new UnitOfWork(Factory);
+             IServices<settings> fService = new Service<settings>(Uok);
+             settings u = fService.GetById((int)id);
+             if (u == null)
+             {
+                 return HttpNotFound();
+             }
+             return View(u);
+         }
+        */
+            DatabaseFactory Factory = new DatabaseFactory();
+            IUnitOfWork Uok = new UnitOfWork(Factory);
+            IServices<settings> QService = new Service<settings>(Uok);
+            //IEnumerable<PointeVente> c = collection.Cast<PointeVente>();
+            QService.Update(settings);
+            QService.Commit();
+            return RedirectToAction("Index");
+        }
         // GET: settings/Delete/5
         public ActionResult Delete(int? id)
         {

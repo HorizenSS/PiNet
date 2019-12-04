@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 namespace PiDev.ServicePattern
 {
     
-    interface IServices<T> : IDisposable where T : class
+    public interface IServices<T> : IDisposable where T : class
     {
         void Add(T Entity);
         T GetById(int id);

@@ -9,12 +9,12 @@ using Data.Infrastructure;
 
 namespace PiDev.ServicePattern
 {
-    public abstract class Service<T> : IServices<T> where T : class
+    public  class Service<T> : IServices<T> where T : class
 
     {
         IUnitOfWork utwk;
 
-        protected Service(IUnitOfWork utwk)
+        public Service(IUnitOfWork utwk)
         {
             this.utwk = utwk;
         }
@@ -28,11 +28,6 @@ namespace PiDev.ServicePattern
 
         }
 
-        public virtual void Update(int id, T entity)
-        {
-            //_repository.Update(entity);
-            utwk.getRepository<T>().Update(id, entity);
-        }
 
         public void Delete(T entity)
         {
@@ -91,24 +86,27 @@ namespace PiDev.ServicePattern
             return utwk.getRepository<T>().GetInclude(filter, orderBy, includes);
         }
 
-        public T GetById(int id)
+  
+
+
+        public void dispose()
         {
-            throw new NotImplementedException();
+            utwk.Dispose();
         }
 
-        public T GetById(string id)
+        public T GetById(int id)
         {
             throw new NotImplementedException();
         }
 
         public void Update(T Entity)
         {
-            throw new NotImplementedException();
+            utwk.getRepository<T>().Update(Entity);
         }
 
-        public void dispose()
+        public T GetById(string id)
         {
-            throw new NotImplementedException();
+            return utwk.getRepository<T>().GetById(id);
         }
     }
 

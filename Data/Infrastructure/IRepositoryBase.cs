@@ -19,7 +19,7 @@ namespace Data.Infrastructure
         T GetById(string id);
         IEnumerable<T> GetMany(Expression<Func<T, bool>> where = null, Expression<Func<T, bool>> orderBy = null);
 
-        void Update(int id, T entity);
+        void Update( T entity);
         IEnumerable<T> GetAll();
 
         List<T> GetInclude(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, params Expression<Func<T, object>>[] includes);
