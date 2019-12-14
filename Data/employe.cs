@@ -16,6 +16,10 @@ namespace Data
             test = new HashSet<test>();
         }
 
+        [Required]
+        [StringLength(31)]
+        public string DTYPE { get; set; }
+
         [Key]
         public int cin { get; set; }
 
@@ -44,6 +48,8 @@ namespace Data
 
         public int? devTeam_idTeam { get; set; }
 
+        public int? resumeId { get; set; }
+
         public virtual devteam devteam { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -51,5 +57,7 @@ namespace Data
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<test> test { get; set; }
+
+        public virtual resume resume { get; set; }
     }
 }

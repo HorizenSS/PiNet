@@ -11,6 +11,7 @@ namespace Data
     {
         [Key]
         [Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int idEmp { get; set; }
 
         [Key]
@@ -18,13 +19,10 @@ namespace Data
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int idFor { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int idTest { get; set; }
-
         [StringLength(255)]
         public string Speciality { get; set; }
+
+        public int? idTest { get; set; }
 
         [StringLength(255)]
         public string score { get; set; }

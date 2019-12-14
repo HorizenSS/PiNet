@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div class="col-md-4 text-center">
+    <form action="@Url.Action("Create", "Skill")">
+        <button class="col-md-3 btn btn-success" type="submit">New Skill</button>
+    </form>
+</div>
+<table class="table">
+
+    @foreach (var item in ViewBag.result)
+    {
+        <tr>
+            <td>
+                @item.category
+            </td>
+            <td>
+                @item.name
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.skillId}) |
+                @Html.ActionLink("Details", "Details", new { id = item.skillId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.skillId })
+            </td>
+        </tr>
+    }
+
+</table>
