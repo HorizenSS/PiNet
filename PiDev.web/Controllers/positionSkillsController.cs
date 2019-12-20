@@ -11,7 +11,7 @@ using Data;
 using PiDev.Domain;
 
 namespace PiDev.web.Controllers
-{
+{/*
     public class positionSkillsController : Controller
     {
         private PidevContext db = new PidevContext();
@@ -131,4 +131,4 @@ namespace PiDev.web.Controllers
             base.Dispose(disposing);
         }
     }
-}
+*/}

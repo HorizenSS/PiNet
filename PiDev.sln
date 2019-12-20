@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiDev.web", "PiDev.web\PiDe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiDev.Domain", "PiDev.Domain\PiDev.Domain.csproj", "{449DC901-2878-4FB5-B81E-8CDC1AEECEA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{7C5A167A-EC32-4DBC-AABF-4A17A8085F75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{BD0E9FDD-5831-4B78-BB1D-05D73271EE16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{449DC901-2878-4FB5-B81E-8CDC1AEECEA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{449DC901-2878-4FB5-B81E-8CDC1AEECEA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{449DC901-2878-4FB5-B81E-8CDC1AEECEA8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C5A167A-EC32-4DBC-AABF-4A17A8085F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C5A167A-EC32-4DBC-AABF-4A17A8085F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C5A167A-EC32-4DBC-AABF-4A17A8085F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C5A167A-EC32-4DBC-AABF-4A17A8085F75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD0E9FDD-5831-4B78-BB1D-05D73271EE16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD0E9FDD-5831-4B78-BB1D-05D73271EE16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD0E9FDD-5831-4B78-BB1D-05D73271EE16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD0E9FDD-5831-4B78-BB1D-05D73271EE16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

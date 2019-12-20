@@ -6,9 +6,9 @@ namespace PiDev.Domain
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("pidevds.skill")]
+    [Table("mycompetence.skill")]
     public partial class skill
-    {   [Key]
+    {
         public int skillId { get; set; }
 
         [StringLength(255)]

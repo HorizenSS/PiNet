@@ -1,5 +1,5 @@
 ﻿
-using Data;
+using PiDev.Domain;
 using Newtonsoft.Json;
 using PiDev.Service;
 using PiDev.Service.IServices;
@@ -84,14 +84,14 @@ namespace PiDev.web.Controllers
         }
 
         // GET: Skill/Create
-      /*  public ActionResult Create()
+       public ActionResult Create()
         {
             IEnumerable<String> categories = skillService.GetMany().Select(c => c.category).Distinct();
             ViewBag.result = categories;
             return View("Create");
-        }*/
+        }
 
-  /*      // POST: Skill/Create
+      // POST: Skill/Create
         [HttpPost]
         public ActionResult Create(SkillVM sk)
         {
@@ -104,27 +104,24 @@ namespace PiDev.web.Controllers
        // GET: Skill/Edit/5
          public ActionResult Edit(int id)
         {
-            IEnumerable<String> categories = skillService.GetMany().Select(c => c.category).Distinct();
-            ViewBag.result = categories;
-            return View("Edit");
-            
-         }
-        [HttpPut]
+            return View();
+        }
+        [HttpPost]
         public ActionResult Edit(SkillVM sk)
         {
             HttpClient Client = new HttpClient();
-            Client.BaseAddress = new Uri("http://localhost:9080");
-            Client.PutAsJsonAsync<SkillVM>("PiDev-web/rest/skills", sk).ContinueWith((putTask) => putTask.Result.EnsureSuccessStatusCode());
-            return RedirectToAction("Index");
+           
+            var response1 = Client.PutAsJsonAsync<SkillVM>("http://localhost:9080/PiDev-web/rest/skills/", sk).Result;
+            return RedirectToAction("index");
         }
 
 
         
         // POST: Skill/Edit/5
-        /*[HttpPut]
+       /* [HttpPost]
         public ActionResult foo(SkillVM sk, FormCollection collection)
         {
-         k.skillId =Int32.Parse(Request.Form["skillId"]);
+         sk.skillId =Int32.Parse(Request.Form["skillId"]);
             sk.category= Request.Form["category"].ToString();
             sk.name=Request.Form["name"].ToString();
 
@@ -133,17 +130,19 @@ namespace PiDev.web.Controllers
             Client.PutAsJsonAsync<SkillVM>("PiDev-web/rest/skills", sk).ContinueWith((putTask) => putTask.Result.EnsureSuccessStatusCode());
             return RedirectToAction("Index");
         }*/
-        /*
+        
         // GET: Skill/Delete/5
         public ActionResult Delete(int id)
         {
-            IEnumerable<String> skills = skillService.GetMany().Select(c => c.category).Distinct();
-            ViewBag.result = skills;
-            return View("Delete");
+
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.DeleteAsync("http://localhost:9080/PiDev-web/rest/skills/" +"?id="+id.ToString()).Result;
+
+            return RedirectToAction("Index");
         }
 
         // POST: Skill/Delete/5
-        [HttpDelete]
+        [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
@@ -154,6 +153,6 @@ namespace PiDev.web.Controllers
             {
                 return View();
             }
-        }*/
+        }
     }
 }

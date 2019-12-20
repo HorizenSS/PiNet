@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Data;
+using PiDev.Domain;
 using PiDev.Domain;
 
 namespace PiDev.web.Controllers
-{
+{/*
     public class positionOffersController : Controller
     {
         private PidevContext db = new PidevContext();
@@ -126,4 +126,4 @@ namespace PiDev.web.Controllers
             base.Dispose(disposing);
         }
     }
-}
+*/}

@@ -420,7 +420,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{7c5a167a-ec32-4dbc-aabf-4a17a8085f75}</Project>
+      <Project>{bd0e9fdd-5831-4b78-bb1d-05d73271ee16}</Project>
       <Name>Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\PiDev.Domain\PiDev.Domain.csproj">

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PiDev.ServicePattern;
+using PiDev.Domain;
 
 namespace PiDev.Service
 {

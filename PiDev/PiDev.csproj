@@ -96,10 +96,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{7c5a167a-ec32-4dbc-aabf-4a17a8085f75}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PiDev.Domain\PiDev.Domain.csproj">
       <Project>{449dc901-2878-4fb5-b81e-8cdc1aeecea8}</Project>
       <Name>PiDev.Domain</Name>

@@ -32,7 +32,7 @@ namespace PiDev.web.Models
 
         public System.Data.Entity.DbSet<PiDev.web.Models.SkillVM> SkillVMs { get; set; }
 
-        public System.Data.Entity.DbSet<Data.skill> skills { get; set; }
+       
      
     }
 }

@@ -7,7 +7,9 @@ using System.Web;
 namespace PiDev.web.Models
 {
     public class SkillVM
-    {   [Key]
+    {
+        
+        [Key]
         public int skillId { get; set; }
         public string category { get; set; }
         public string name { get; set; }
