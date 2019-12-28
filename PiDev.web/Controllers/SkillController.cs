@@ -111,7 +111,7 @@ namespace PiDev.web.Controllers
         {
             HttpClient Client = new HttpClient();
            
-            var response1 = Client.PutAsJsonAsync<SkillVM>("http://localhost:9080/PiDev-web/rest/skills/", sk).Result;
+            var response1 = Client.PutAsJsonAsync<SkillVM>("http://localhost:9080/PiDev-web/rest/skills/", sk).ContinueWith((putTask) => putTask.Result.EnsureSuccessStatusCode());
             return RedirectToAction("index");
         }
 

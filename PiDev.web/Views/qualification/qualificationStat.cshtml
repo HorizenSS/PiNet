@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "qualification Stat";
+}
+
+
+
+<script>
+    var temp1 = '@ViewBag.Data';
+    var data = JSON.parse('@ViewBag.Data');
+    console.log(data);
+</script>
+<script type="text/javascript">
+    google.load("visualization", "1", { packages: ["corechart"] });
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+
+        var chartData = google.visualization.arrayToDataTable(data);
+
+        var options = {
+            title: 'job goal progress'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(chartData, options);
+    }
+</script>
+<br />
+<p class="alert alert-info">The job Name is:  @ViewData["jobname"] And @ViewData["DeadlineInfo"] </p>
+
+i will show chart in there. but the data will come from viewdata instead of calling jQuery Ajax request.
+<div id="piechart" style="width: 900px; height: 500px;"></div>

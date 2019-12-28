@@ -1,0 +1,26 @@
+﻿@model IEnumerable<PiDev.Domain.jobOffer>
+
+
+@{
+    ViewBag.Title = "Job Offer";
+}
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<a href="@Url.Action("AlljobOffer" , "jobOffers")">
+    <button type="button" class="btn btn-primary btn-lg btn-block">All job Offers</button>
+</a>
+
+<br />
+<br />
+<a href="@Url.Action("ActiveList" , "jobOffers")">
+    <button type="button" class="btn btn-primary btn-lg btn-block">Active job Offers</button>
+</a>
+<br />
+<br />
+<a href="@Url.Action("PassedList" , "jobOffers")">
+    <button type="button" class="btn btn-primary btn-lg btn-block">Passed job Offers</button>
+</a>
