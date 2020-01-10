@@ -28,7 +28,7 @@ namespace PiDev.ocr
             {
                 api.Init(Languages.English);
 
-                string plainText = api.GetTextFromImage("C:\\Users\\Sweet\\Videos\\veggie-grocery-receipt_orig.jpeg");
+                string plainText = api.GetTextFromImage("C:\\Users\\Sweet\\Videos\\wooh.jpg");
 
                 string[] parsed = plainText
                     .Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
@@ -85,11 +85,11 @@ namespace PiDev.ocr
 
                 tickerService.Add(ticketsMazraa);
                 tickerService.Commit();
-
+                
 
                 string libelle = util.getLibelle(parsed[5]);
 
-
+                Console.ReadLine();
 
 
             }

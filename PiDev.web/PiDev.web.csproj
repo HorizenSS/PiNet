@@ -300,6 +300,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjetController.cs" />
     <Compile Include="Controllers\qualificationController.cs" />
+    <Compile Include="Controllers\ShinyController.cs" />
     <Compile Include="Controllers\SkillController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1238,6 +1239,7 @@
     <Content Include="Views\qualification\Delete.cshtml" />
     <Content Include="Views\qualification\Edit.cshtml" />
     <Content Include="Views\qualification\qualificationStat.cshtml" />
+    <Content Include="Views\Shiny\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
