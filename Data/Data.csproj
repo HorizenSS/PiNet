@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Configurations\skillConfig.cs" />
     <Compile Include="Infrastructures\DataBaseFactory.cs" />
     <Compile Include="Infrastructures\Disposable.cs" />
     <Compile Include="Infrastructures\IDataBaseFactory.cs" />
@@ -133,9 +134,49 @@
     <Compile Include="Infrastructures\IUnitOfWork.cs" />
     <Compile Include="Infrastructures\RepositoryBase.cs" />
     <Compile Include="Infrastructures\UnitOfWork.cs" />
-    <Compile Include="Migrations\201912282111152_m1.cs" />
-    <Compile Include="Migrations\201912282111152_m1.Designer.cs">
-      <DependentUpon>201912282111152_m1.cs</DependentUpon>
+    <Compile Include="Migrations\202001172130044_a2.cs" />
+    <Compile Include="Migrations\202001172130044_a2.Designer.cs">
+      <DependentUpon>202001172130044_a2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001191701065_emp.cs" />
+    <Compile Include="Migrations\202001191701065_emp.Designer.cs">
+      <DependentUpon>202001191701065_emp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001201651265_n4.cs" />
+    <Compile Include="Migrations\202001201651265_n4.Designer.cs">
+      <DependentUpon>202001201651265_n4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001201726581_n8.cs" />
+    <Compile Include="Migrations\202001201726581_n8.Designer.cs">
+      <DependentUpon>202001201726581_n8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001202051284_pb.cs" />
+    <Compile Include="Migrations\202001202051284_pb.Designer.cs">
+      <DependentUpon>202001202051284_pb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001202206538_po.cs" />
+    <Compile Include="Migrations\202001202206538_po.Designer.cs">
+      <DependentUpon>202001202206538_po.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001212313409_empskill.cs" />
+    <Compile Include="Migrations\202001212313409_empskill.Designer.cs">
+      <DependentUpon>202001212313409_empskill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001212318269_empskill1.cs" />
+    <Compile Include="Migrations\202001212318269_empskill1.Designer.cs">
+      <DependentUpon>202001212318269_empskill1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001212328543_em.cs" />
+    <Compile Include="Migrations\202001212328543_em.Designer.cs">
+      <DependentUpon>202001212328543_em.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001212330449_emm.cs" />
+    <Compile Include="Migrations\202001212330449_emm.Designer.cs">
+      <DependentUpon>202001212330449_emm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001221112278_q8.cs" />
+    <Compile Include="Migrations\202001221112278_q8.Designer.cs">
+      <DependentUpon>202001221112278_q8.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model1.cs" />
@@ -153,8 +194,38 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201912282111152_m1.resx">
-      <DependentUpon>201912282111152_m1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001172130044_a2.resx">
+      <DependentUpon>202001172130044_a2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001191701065_emp.resx">
+      <DependentUpon>202001191701065_emp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001201651265_n4.resx">
+      <DependentUpon>202001201651265_n4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001201726581_n8.resx">
+      <DependentUpon>202001201726581_n8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001202051284_pb.resx">
+      <DependentUpon>202001202051284_pb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001202206538_po.resx">
+      <DependentUpon>202001202206538_po.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001212313409_empskill.resx">
+      <DependentUpon>202001212313409_empskill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001212318269_empskill1.resx">
+      <DependentUpon>202001212318269_empskill1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001212328543_em.resx">
+      <DependentUpon>202001212328543_em.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001212330449_emm.resx">
+      <DependentUpon>202001212330449_emm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001221112278_q8.resx">
+      <DependentUpon>202001221112278_q8.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,757 +1,700 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@*<!DOCTYPE html>
+
+<html>
 <head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>*@
+<html lang="en" class="perfect-scrollbar-on">
+<!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 22 Oct 2019 20:19:20 GMT --><!-- Added by HTTrack -->
+<head>
+
+    @Styles.Render("~/template/css")
+    @Scripts.Render("~/template/js")
+    @RenderSection("scripts", required: false)
+
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="@Url.Content("Content/assets/images/favicon.png")">
-    <title>Advyteam homepage</title>
-    <link rel="canonical" href="https://www.wrappixel.com/templates/materialpro/" />
-    <!-- chartist CSS -->
-    <link href=@Url.Content("Content/assets/plugins/chartist-js/dist/chartist.min.css") rel="stylesheet">
-    <link href=@Url.Content("Content/assets/plugins/chartist-js/dist/chartist-init.css") rel="stylesheet">
-    <link href=@Url.Content("Content/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css") rel="stylesheet" )>
-    <!--This page css - Morris CSS -->
-    <link href="@Url.Content("Content/assets/plugins/c3-master/c3.min.css")" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="@Url.Content("Content/css/style.css")" rel="stylesheet">
-    <!-- You can change the theme colors from here -->
-    <link href="@Url.Content("Content/css/colors/blue.css")" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src=img src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src=img src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-
+    <link rel="apple-touch-icon" sizes="76x76" href="src="~/Content/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="~/Content//img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>
+       Adyteam Home
+    </title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport">
+    <!-- Extra details for Live View on GitHub Pages -->
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="https://www.creative-tim.com/product/material-dashboard-pro">
+    <!--  Social tags      -->
+    <meta name="keywords" content="creative tim, html dashboard, html css dashboard, web dashboard, bootstrap 4 dashboard, bootstrap 4, css3 dashboard, bootstrap 4 admin, material dashboard bootstrap 4 dashboard, frontend, responsive bootstrap 4 dashboard, material design, material dashboard bootstrap 4 dashboard">
+    <meta name="description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Material Dashboard PRO by Creative Tim">
+    <meta itemprop="description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
+    <meta itemprop="image" content="../../../s3.amazonaws.com/creativetim_bucket/products/51/original/opt_mdp_thumbnail.jpg">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="product">
+    <meta name="twitter:site" content="creativetim">
+    <meta name="twitter:title" content="Material Dashboard PRO by Creative Tim">
+    <meta name="twitter:description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
+    <meta name="twitter:creator" content="creativetim">
+    <meta name="twitter:image" content="../../../s3.amazonaws.com/creativetim_bucket/products/51/original/opt_mdp_thumbnail.jpg">
+    <!-- Open Graph data -->
+    <meta property="fb:app_id" content="655968634437471">
+    <meta property="og:title" content="Material Dashboard PRO by Creative Tim">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="dashboard.html">
+    <meta property="og:image" content="../../../s3.amazonaws.com/creativetim_bucket/products/51/original/opt_mdp_thumbnail.jpg">
+    <meta property="og:description" content="Material Dashboard PRO is a Premium Material Bootstrap 4 Admin with a fresh, new design inspired by Google's Material Design.">
+    <meta property="og:site_name" content="Creative Tim">
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+   
+    
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="../assets/demo/demo.css" rel="stylesheet">
+    <!-- Google Tag Manager -->
+    
+    <script async="" src="../../../www.googletagmanager.com/gtm5445.html?id=GTM-NKDMSK6"></script>
+    <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        '../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
+    </script>
+    <!-- End Google Tag Manager -->
+   
+    <script src="https://connect.facebook.net/signals/config/111649226022273?v=2.9.5&amp;r=stable" async=""></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/38/11/intl/fr_ALL/common.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/38/11/intl/fr_ALL/util.js"></script>
 </head>
 
-<body>
-    <header class="topbar">
-        <nav class="navbar top-navbar navbar-expand-md navbar-light">
-            <!-- ============================================================== -->
-            <!-- Logo -->
-            <!-- ============================================================== -->
-            <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">
-                    <!-- Logo icon --><b>
-                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                        <!-- Dark Logo icon -->
-                        <img src="@Url.Content("/Content/assets/images/logo-icon.png")" alt="homepage" class="dark-logo" />
-                        <!-- Light Logo icon -->
-                        <img src="@Url.Content("/Content/assets/images/logo-light-icon.png")" alt="homepage" class="light-logo" />
-                    </b>
-                    <!--End Logo icon -->
-                    <!-- Logo text --><span>
-                        <!-- dark Logo text -->
-                        <img src="@Url.Content("/Content/assets/images/logo-text.png") " alt="homepage" class="dark-logo" />
-                        <!-- Light Logo text -->
-                        <img src="@Url.Content("/Content/assets/images/logo-light-text.png")" class="light-logo" alt="homepage" />
-                    </span>
+<body class="">
+    <!-- Extra details for Live View on GitHub Pages -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="wrapper ">
+        <div class="sidebar" data-color="rose" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
+            <!--
+                Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+                Tip 2: you can also add an image using data-image tag
+            -->
+            <div class="logo">
+                <a href="http://www.creative-tim.com/" class="simple-text logo-mini">
+                 
+                </a>
+                <a href="http://www.creative-tim.com/" class="simple-text logo-normal">
+                   Advyteam Homepage
                 </a>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Logo -->
-            <!-- ============================================================== -->
-            <div class="navbar-collapse">
-                <!-- ============================================================== -->
-                <!-- toggle and nav items -->
-                <!-- ============================================================== -->
-                <ul class="navbar-nav mr-auto mt-md-0">
-                    <!-- This is  -->
-                    <li class="nav-item">
-                        <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
-                           href="javascript:void(0)"><i class="mdi mdi-menu"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark"
-                           href="javascript:void(0)"><i class="ti-menu"></i></a>
-                    </li>
-                    <!-- ============================================================== -->
-                    <!-- Search -->
-                    <!-- ============================================================== -->
-                    <li class="nav-item hidden-sm-down search-box">
-                        <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark"
-                           href="javascript:void(0)"><i class="ti-search"></i></a>
-                        <form class="app-search">
-                            <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a>
-                        </form>
-                    </li>
-                    <!-- ============================================================== -->
-                    <!-- Messages -->
-                    <!-- ============================================================== -->
-                    <li class="nav-item dropdown mega-dropdown">
-                        <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="mdi mdi-view-grid"></i>
+            <div class="sidebar-wrapper ps-container ps-theme-default ps-active-y" data-ps-id="5659a087-48bc-be2d-e284-6904e6faf5b3">
+                <div class="user">
+                    <div class="photo">
+                        <img src="../assets/img/faces/avatar.jpg">
+                    </div>
+                    <div class="user-info">
+                        <a data-toggle="collapse" href="#collapseExample" class="username">
+                            <span>welcome
+                                <b class="caret"></b>
+                            </span>
                         </a>
-                        <div class="dropdown-menu scale-up-left">
-                            <ul class="mega-dropdown-menu row">
-                                <li class="col-lg-3 col-xlg-2 mb-4">
-                                    <h4 class="mb-3">CAROUSEL</h4>
-                                    <!-- CAROUSEL -->
-                                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                                        <div class="carousel-inner" role="listbox">
-                                            <div class="carousel-item active">
-                                                <div class="container">
-                                                    <img class="d-block img-fluid"
-                                                         img src="@Url.Content("/Content/assets/images/big/img1.jpg")" alt="First slide">
-                                                </div>
-                                            </div>
-                                            <div class="carousel-item">
-                                                <div class="container">
-                                                    <img class="d-block img-fluid"
-                                                         img src="@Url.Content("/Content/assets/images/big/img2.jpg")" alt="Second slide">
-                                                </div>
-                                            </div>
-                                            <div class="carousel-item">
-                                                <div class="container">
-                                                    <img class="d-block img-fluid"
-                                                         img src="@Url.Content("/Content/assets/images/big/img3.jpg")" alt="Third slide">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <a class="carousel-control-prev" href="#carouselExampleControls"
-                                           role="button" data-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="carousel-control-next" href="#carouselExampleControls"
-                                           role="button" data-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </div>
-                                    <!-- End CAROUSEL -->
+                        <div class="collapse" id="collapseExample">
+                            <ul class="nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <span class="sidebar-mini"> MP </span>
+                                        <span class="sidebar-normal"> My Profile </span>
+                                    </a>
                                 </li>
-                                <li class="col-lg-3 mb-4">
-                                    <h4 class="mb-3">ACCORDION</h4>
-                                    <!-- Accordian -->
-                                    <div id="accordion" class="nav-accordion" role="tablist"
-                                         aria-multiselectable="true">
-                                        <div class="card">
-                                            <div class="card-header" role="tab" id="headingOne">
-                                                <h5 class="mb-0">
-                                                    <a data-toggle="collapse" data-parent="#accordion"
-                                                       href="#collapseOne" aria-expanded="true"
-                                                       aria-controls="collapseOne">
-                                                        Collapsible Group Item #1
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseOne" class="collapse show" role="tabpanel"
-                                                 aria-labelledby="headingOne">
-                                                <div class="card-body">
-                                                    Anim pariatur cliche reprehenderit, enim
-                                                    eiusmod high.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header" role="tab" id="headingTwo">
-                                                <h5 class="mb-0">
-                                                    <a class="collapsed" data-toggle="collapse"
-                                                       data-parent="#accordion" href="#collapseTwo"
-                                                       aria-expanded="false" aria-controls="collapseTwo">
-                                                        Collapsible Group Item #2
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseTwo" class="collapse" role="tabpanel"
-                                                 aria-labelledby="headingTwo">
-                                                <div class="card-body">
-                                                    Anim pariatur cliche reprehenderit, enim
-                                                    eiusmod high life accusamus terry richardson ad squid.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header" role="tab" id="headingThree">
-                                                <h5 class="mb-0">
-                                                    <a class="collapsed" data-toggle="collapse"
-                                                       data-parent="#accordion" href="#collapseThree"
-                                                       aria-expanded="false" aria-controls="collapseThree">
-                                                        Collapsible Group Item #3
-                                                    </a>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseThree" class="collapse" role="tabpanel"
-                                                 aria-labelledby="headingThree">
-                                                <div class="card-body">
-                                                    Anim pariatur cliche reprehenderit, enim
-                                                    eiusmod high life accusamus terry richardson ad squid.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <span class="sidebar-mini"> EP </span>
+                                        <span class="sidebar-normal"> Edit Profile </span>
+                                    </a>
                                 </li>
-                                <li class="col-lg-3  mb-4">
-                                    <h4 class="mb-3">CONTACT US</h4>
-                                    <!-- Contact -->
-                                    <form>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="exampleInputname1"
-                                                   placeholder="Enter Name">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Enter email">
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea class="form-control" id="exampleTextarea" rows="3"
-                                                      placeholder="Message"></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-info">Submit</button>
-                                    </form>
-                                </li>
-                                <li class="col-lg-3 col-xlg-4 mb-4">
-                                    <h4 class="mb-3">List style</h4>
-                                    <!-- List style -->
-                                    <ul class="list-style-none">
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="fa fa-check text-success"></i>
-                                                You can give link
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="fa fa-check text-success"></i>
-                                                Give link
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="fa fa-check text-success"></i>
-                                                Another Give link
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="fa fa-check text-success"></i>
-                                                Forth link
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="fa fa-check text-success"></i>
-                                                Another fifth link
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- ============================================================== -->
-                    <!-- End Messages -->
-                    <!-- ============================================================== -->
-                </ul>
-                <!-- ============================================================== -->
-                <!-- User profile and search -->
-                <!-- ============================================================== -->
-                <ul class="navbar-nav my-lg-0">
-                    <!-- ============================================================== -->
-                    <!-- Comment -->
-                    <!-- ============================================================== -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="#"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="mdi mdi-message"></i>
-                            <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right mailbox scale-up">
-                            <ul>
-                                <li>
-                                    <div class="font-medium py-3 px-4 border-bottom">Notifications</div>
-                                </li>
-                                <li>
-                                    <div class="message-center position-relative">
-                                        <!-- Message -->
-                                        <a href="#" class="border-bottom d-block text-decoration-none py-2 px-3">
-                                            <div class="btn btn-danger btn-circle mr-2">
-                                                <i class="fa fa-link"></i>
-                                            </div>
-                                            <div class="mail-contnet d-inline-block align-middle">
-                                                <h5 class="my-1">Luanch Admin</h5> <span class="mail-desc font-12 text-truncate overflow-hidden text-nowrap d-block">
-                                                    Just
-                                                    see the my new
-                                                    admin!
-                                                </span> <span class="time font-12 mt-1 text-truncate overflow-hidden text-nowrap d-block">
-                                                    9:30
-                                                    AM
-                                                </span>
-                                            </div>
-                                        </a>
-                                        <!-- Message -->
-                                        <a href="#" class="border-bottom d-block text-decoration-none py-2 px-3">
-                                            <div class="btn btn-success btn-circle mr-2">
-                                                <i class="ti-calendar"></i>
-                                            </div>
-                                            <div class="mail-contnet d-inline-block align-middle">
-                                                <h5 class="my-1">Event today</h5> <span class="mail-desc font-12 text-truncate overflow-hidden text-nowrap d-block">
-                                                    Just
-                                                    a reminder that
-                                                    you have event
-                                                </span> <span class="time font-12 mt-1 text-truncate overflow-hidden text-nowrap d-block">
-                                                    9:10
-                                                    AM
-                                                </span>
-                                            </div>
-                                        </a>
-                                        <!-- Message -->
-                                        <a href="#" class="border-bottom d-block text-decoration-none py-2 px-3">
-                                            <div class="btn btn-info btn-circle mr-2">
-                                                <i class="ti-settings"></i>
-                                            </div>
-                                            <div class="mail-contnet d-inline-block align-middle">
-                                                <h5 class="my-1">Settings</h5> <span class="mail-desc font-12 text-truncate overflow-hidden text-nowrap d-block">
-                                                    You
-                                                    can customize this
-                                                    template as you want
-                                                </span> <span class="time font-12 mt-1 text-truncate overflow-hidden text-nowrap d-block">
-                                                    9:08
-                                                    AM
-                                                </span>
-                                            </div>
-                                        </a>
-                                        <!-- Message -->
-                                        <a href="#" class="border-bottom d-block text-decoration-none py-2 px-3">
-                                            <div class="btn btn-primary btn-circle mr-2">
-                                                <i class="ti-user"></i>
-                                            </div>
-                                            <div class="mail-contnet d-inline-block align-middle">
-                                                <h5 class="my-1">Pavan kumar</h5> <span class="mail-desc font-12 text-truncate overflow-hidden text-nowrap d-block">
-                                                    Just
-                                                    see the my
-                                                    admin!
-                                                </span>
-                                                <span class="time font-12 mt-1 text-truncate overflow-hidden text-nowrap d-block">
-                                                    9:02
-                                                    AM
-                                                </span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a class="nav-link text-center border-top pt-3" href="javascript:void(0);">
-                                        <strong>
-                                            Check all
-                                            notifications
-                                        </strong> <i class="fa fa-angle-right"></i>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <span class="sidebar-mini"> S </span>
+                                        <span class="sidebar-normal"> Settings </span>
                                     </a>
                                 </li>
                             </ul>
                         </div>
-                    </li>
-                    <!-- ============================================================== -->
-                    <!-- End Comment -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- Messages -->
-                    <!-- ============================================================== -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" id="2"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="mdi mdi-email"></i>
-                            <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
-                        </a>
-                        <div class="dropdown-menu mailbox dropdown-menu-right scale-up" aria-labelledby="2">
-                            <ul>
-                                <li>
-                                    <div class="font-medium py-3 px-4 border-bottom">You have 4 new messages</div>
-                                </li>
-                                <li>
-                                    <div class="message-center">
-                                        <!-- Message -->
-                                        <a href="#" class="border-bottom d-block text-decoration-none py-2 px-3">
-                                            <div class="user-img position-relative d-inline-block mr-2 mb-3">
-                                                <img src="@Url.Content("/Content/assets/images/users/1.jpg")" alt="user"
-                                                     class="rounded-circle"> <span class="profile-status pull-right d-inline-block position-absolute bg-success rounded-circle"></span>
-                                            </div>
-                                            <div class="mail-contnet d-inline-block align-middle">
-                                                <h5 class="my-1">Pavan kumar</h5> <span class="mail-desc font-12 text-truncate overflow-hidden text-nowrap d-block">
-                                                    Just
-                                                    see the my
-                                                    admin!
-                                                </span>
-                                                <span class="time font-12 mt-1 text-truncate overflow-hidden text-nowrap d-block">
-                                                    9:30
-                                                    AM
-                                                </span>
-                                            </div>
-                                        </a>
-                                        <!-- Message -->
-                                        <a href="#" class="border-bottom d-block text-decoration-none py-2 px-3">
-                                            <div class="user-img position-relative d-inline-block mr-2 mb-3">
-                                                <img src="@Url.Content("/Content/assets/images/users/2.jpg")" alt="user"
-                                                     class="rounded-circle"> <span class="profile-status pull-right d-inline-block position-absolute bg-danger rounded-circle"></span>
-                                            </div>
-                                            <div class="mail-contnet d-inline-block align-middle">
-                                                <h5 class="my-1">Sonu Nigam</h5> <span class="mail-desc font-12 text-truncate overflow-hidden text-nowrap d-block">
-                                                    I've
-                                                    sung a song! See
-                                                    you at
-                                                </span> <span class="time font-12 mt-1 text-truncate overflow-hidden text-nowrap d-block">
-                                                    9:10
-                                                    AM
-                                                </span>
-                                            </div>
-                                        </a>
-                                        <!-- Message -->
-                                        <a href="#" class="border-bottom d-block text-decoration-none py-2 px-3">
-                                            <div class="user-img position-relative d-inline-block mr-2 mb-3">
-                                                <img src="@Url.Content("/Content/assets/images/users/3.jpg")" alt="user"
-                                                     class="rounded-circle"> <span class="profile-status pull-right d-inline-block position-absolute bg-warning rounded-circle"></span>
-                                            </div>
-                                            <div class="mail-contnet d-inline-block align-middle">
-                                                <h5 class="my-1">Arijit Sinh</h5> <span class="mail-desc font-12 text-truncate overflow-hidden text-nowrap d-block">
-                                                    I
-                                                    am a singer!
-                                                </span>
-                                                <span class="time font-12 mt-1 text-truncate overflow-hidden text-nowrap d-block">
-                                                    9:08
-                                                    AM
-                                                </span>
-                                            </div>
-                                        </a>
-                                        <!-- Message -->
-                                        <a href="#" class="border-bottom d-block text-decoration-none py-2 px-3">
-                                            <div class="user-img position-relative d-inline-block mr-2 mb-3">
-                                                <img src="@Url.Content("/Content/assets/images/users/4.jpg")" alt="user"
-                                                     class="rounded-circle"> <span class="profile-status pull-right d-inline-block position-absolute bg-warning rounded-circle"></span>
-                                            </div>
-                                            <div class="mail-contnet d-inline-block align-middle">
-                                                <h5 class="my-1">Pavan kumar</h5> <span class="mail-desc font-12 text-truncate overflow-hidden text-nowrap d-block">
-                                                    Just
-                                                    see the my
-                                                    admin!
-                                                </span>
-                                                <span class="time font-12 mt-1 text-truncate overflow-hidden text-nowrap d-block">
-                                                    9:02
-                                                    AM
-                                                </span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a class="nav-link text-center border-top pt-3" href="javascript:void(0);">
-                                        <strong>
-                                            See all
-                                            e-Mails
-                                        </strong> <i class="fa fa-angle-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- ============================================================== -->
-                    <!-- End Messages -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- Profile -->
-                    <!-- ============================================================== -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="@Url.Content("/Content/assets/images/users/1.jpg")" alt="user" class="profile-pic" />
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right scale-up">
-                            <ul class="dropdown-user">
-                                <li>
-                                    <div class="dw-user-box">
-                                        <div class="u-img"><img src=" @Url.Content("/Content/assets/images/users/1.jpg") " alt="user"></div>
-                                        <div class="u-text">
-                                            <h4>Steave Jobs</h4>
-                                            <p class="text-muted">varun@gmail.com</p><a href="https://www.wrappixel.com/demos/admin-templates/material-pro/material/profile.html"
-                                                                                        class="btn btn-rounded btn-danger btn-sm">
-                                                View
-                                                Profile
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
-                                <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
-                                <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- ============================================================== -->
-                    <!-- Language -->
-                    <!-- ============================================================== -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="flag-icon flag-icon-us"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right scale-up">
-                            <a class="dropdown-item"
-                               href="#"><i class="flag-icon flag-icon-in"></i> India</a> <a class="dropdown-item"
-                                                                                            href="#"><i class="flag-icon flag-icon-fr"></i> French</a> <a class="dropdown-item"
-                                                                                                                                                          href="#"><i class="flag-icon flag-icon-cn"></i> China</a> <a class="dropdown-item"
-                                                                                                                                                                                                                       href="#"><i class="flag-icon flag-icon-de"></i> Dutch</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <aside class="left-sidebar">
-        <!-- Sidebar scroll-->
-        <div class="scroll-sidebar">
-            <!-- User profile -->
-            <div class="user-profile" style="background: @Url.Content("/Content/assets/images/background/user-info.jpg") no-repeat;">
-                <!-- User profile image -->
-                <div class="profile-img"> <img src=" @Url.Content("/Content/assets/images/users/profile.png")" alt="user" /> </div>
-                <!-- User profile text-->
-                <div class="profile-text">
-                    <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown"
-                       role="button" aria-haspopup="true" aria-expanded="true">Markarn Doe</a>
-                    <div class="dropdown-menu animated flipInY">
-                        <a href="#" class="dropdown-item">
-                            <i class="ti-user"></i>
-                            My Profile
-                        </a> <a href="#" class="dropdown-item">
-                            <i class="ti-wallet"></i> My
-                            Balance
-                        </a>
-                        <a href="#" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
-                        <div class="dropdown-divider"></div> <a href="#" class="dropdown-item">
-                            <i class="ti-settings"></i>
-                            Account Setting
-                        </a>
-                        <div class="dropdown-divider"></div> <a href="https://www.wrappixel.com/demos/admin-templates/material-pro/material/login.html" class="dropdown-item">
-                            <i class="fa fa-power-off"></i>
-                            Logout
-                        </a>
                     </div>
                 </div>
-            </div>
-            <!-- End User profile text-->
-            <!-- Sidebar navigation-->
-            <nav class="sidebar-nav">
-                <ul id="sidebarnav">
-                    <li class="nav-small-cap">PERSONAL</li>
-                    <li>
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                            <i class="mdi mdi-gauge"></i><span class="hide-menu">Skill management </span>
-                        </a>
-                        <ul aria-expanded="false" class="collapse">
-                            
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li><a href="index2.html">Dashboard 2</a></li>
-                            <li><a href="index3.html">Dashboard 3</a></li>
-                            <li><a href="index4.html">Dashboard 4</a></li>
-                            <li><a href="index5.html">Dashboard 5</a></li>
-                            <li><a href="index6.html">Dashboard 6</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-
-                <li>
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                        <i class="mdi mdi-file-chart"></i><span class="hide-menu">Charts</span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="chart-morris.html">Morris Chart</a></li>
-                        <li><a href="chart-chartist.html">Chartis Chart</a></li>
-                        <li><a href="chart-echart.html">Echarts</a></li>
-                        <li><a href="chart-flot.html">Flot Chart</a></li>
-                        <li><a href="chart-knob.html">Knob Chart</a></li>
-                        <li><a href="chart-chart-js.html">Chartjs</a></li>
-                        <li><a href="chart-sparkline.html">Sparkline Chart</a></li>
-                        <li><a href="chart-extra-chart.html">Extra chart</a></li>
-                        <li><a href="chart-peity.html">Peity Charts</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                        <i class="mdi mdi-brush"></i><span class="hide-menu">Icons</span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="icon-material.html">Material Icons</a></li>
-                        <li><a href="icon-fontawesome.html">Fontawesome Icons</a></li>
-                        <li><a href="icon-themify.html">Themify Icons</a></li>
-                        <li><a href="icon-linea.html">Linea Icons</a></li>
-                        <li><a href="icon-weather.html">Weather Icons</a></li>
-                        <li><a href="icon-simple-lineicon.html">Simple Lineicons</a></li>
-                        <li><a href="icon-flag.html">Flag Icons</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                        <i class="mdi mdi-map-marker"></i><span class="hide-menu">Maps</span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="map-google.html">Google Maps</a></li>
-                        <li><a href="map-vector.html">Vector Maps</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                        <i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">
-                            Multi level
-                            dd
-                        </span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="#">item 1.1</a></li>
-                        <li><a href="#">item 1.2</a></li>
-                        <li>
-                            <a class="has-arrow" href="#" aria-expanded="false">Menu 1.3</a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">item 1.3.1</a></li>
-                                <li><a href="#">item 1.3.2</a></li>
-                                <li><a href="#">item 1.3.3</a></li>
-                                <li><a href="#">item 1.3.4</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">item 1.4</a></li>
-                    </ul>
-                </li>
-                </ul>
-            </nav>
-            <!-- End Sidebar navigation -->
-        </div>
-        <!-- End Sidebar scroll-->
-        <!-- Bottom points-->
-        <div class="sidebar-footer">
-            <!-- item--><a href="#" class="link" data-toggle="tooltip" title="Settings">
-                <i class="ti-settings"></i>
-            </a>
-            <!-- item--><a href="#" class="link" data-toggle="tooltip" title="Email">
-                <i class="mdi mdi-gmail"></i>
-            </a>
-            <!-- item--><a href="#" class="link" data-toggle="tooltip" title="Logout">
-                <i class="mdi mdi-power"></i>
-            </a>
-        </div>
-        <!-- End Bottom points-->
-    </aside>
-    <!-- ============================================================== -->
-    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper  -->
-    <!-- ============================================================== -->
-    <div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
-        <div class="container-fluid">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <div class="row page-titles">
-                <div class="col-md-5 col-8 align-self-center">
-                    <h3 class="text-themecolor">Dashboard</h3>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div>
-                <div class="col-md-7 col-4 align-self-center">
-                    <div class="d-flex mt-2 justify-content-end">
-                        <div class="d-flex mr-3 ml-2 hidden-md-down">
-                            <div class="chart-text mr-2">
-                                <h6 class="mb-0"><small>THIS MONTH</small></h6>
-                                <h4 class="mt-0 text-info">$58,356</h4>
-                            </div>
-                            <div class="spark-chart">
-                                <div id="monthchart"></div>
-                            </div>
-                        </div>
-                        <div class="d-flex mr-3 ml-2 hidden-md-down">
-                            <div class="chart-text mr-2">
-                                <h6 class="mb-0"><small>LAST MONTH</small></h6>
-                                <h4 class="mt-0 text-primary">$48,356</h4>
-                            </div>
-                            <div class="spark-chart">
-                                <div id="lastmonthchart"></div>
-                            </div>
-                        </div>
-                        <div class="">
-                            <button class="right-side-toggle waves-effect waves-light btn-success btn btn-circle btn-sm pull-right ml-2">
-                                <i class="ti-settings text-white"></i>
+                <form class="navbar-form">
+                    <span class="bmd-form-group">
+                        <div class="input-group no-border">
+                            <input type="text" value="" class="form-control" placeholder="Search...">
+                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                <i class="material-icons">search</i>
+                                <div class="ripple-container"></div>
                             </button>
                         </div>
+                    </span>
+                </form><ul class="nav navbar-nav nav-mobile-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pablo">
+                            <i class="material-icons">dashboard</i>
+                            <p class="d-lg-none d-md-block">
+                                Stats
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="http://example.com/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">notifications</i>
+                            <span class="notification">5</span>
+                            <p class="d-lg-none d-md-block">
+                                Some Actions
+                            </p>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                            <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                            <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                            <a class="dropdown-item" href="#">Another Notification</a>
+                            <a class="dropdown-item" href="#">Another One</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">person</i>
+                            <p class="d-lg-none d-md-block">
+                                Account
+                            </p>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Log out</a>
+                        </div>
+                    </li>
+             
+                <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 582px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 332px;"></div></div>
+            </div>
+            <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-1.jpg) "></div>
+        </div>
+        <div class="main-panel ps-container ps-theme-default ps-active-y" data-ps-id="9727b7e9-5738-4b4b-0a6b-82ed9aa92c42">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-minimize">
+                            <button id="minimizeSidebar" class="btn btn-just-icon btn-white btn-fab btn-round">
+                                <i class="material-icons text_align-center visible-on-sidebar-regular">more_vert</i>
+                                <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
+                            </button>
+                        </div>
+                        <a class="navbar-brand" href="#pablo">Dashboard</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end">
+                        <form class="navbar-form">
+                         
+                                <div class="input-group no-border">
+                                    <input type="text" value="" class="form-control" placeholder="Search...">
+                                    <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                        <i class="material-icons">search</i>
+                                        <div class="ripple-container"></div>
+                                    </button>
+                                </div>
+                          
+                        </form>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#pablo">
+                                    <i class="material-icons">dashboard</i>
+                                    <p class="d-lg-none d-md-block">
+                                        Stats
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="http://example.com/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">notifications</i>
+                                    <span class="notification">5</span>
+                                    <p class="d-lg-none d-md-block">
+                                        Some Actions
+                                    </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Mike John responded to your email</a>
+                                    <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                                    <a class="dropdown-item" href="#">You're now friend with Andrew</a>
+                                    <a class="dropdown-item" href="#">Another Notification</a>
+                                    <a class="dropdown-item" href="#">Another One</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">person</i>
+                                    <p class="d-lg-none d-md-block">
+                                        Account
+                                    </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                                    <a class="dropdown-item" href="#">Profile</a>
+                                    <a class="dropdown-item" href="#">Settings</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Log out</a>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                   
-                    </div>
-                    <div class="container body-content">
-                        @RenderBody()
-                        <hr />
-                    </div>
-
-                    @Scripts.Render("~/bundles/jquery")
-                    @Scripts.Render("~/bundles/bootstrap")
-                    @RenderSection("scripts", required: false)
+            </nav>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="content">
+                    @RenderBody()
                 </div>
             </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav class="float-left">
+                        <ul>
+                            <li>
+                                <a href="https://www.creative-tim.com/">
+                                    Creative Tim
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://creative-tim.com/presentation">
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://blog.creative-tim.com/">
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.creative-tim.com/license">
+                                    Licenses
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="copyright float-right">
+                        ©
+                        <script>
+                          document.write(new Date().getFullYear())
+                        </script>2019, made with <i class="material-icons">favorite</i> by
+                        <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a> for a better web.
+                    </div>
+                </div>
+            </footer>
+            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px; height: 657px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 625px;"></div></div>
         </div>
     </div>
-    </div></div>
-    <script img src="@Url.Content("/Content/assets/plugins/jquery/jquery.min.js")"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script img src="@Url.Content("/Content/assets/plugins/popper/popper.min.js")"></script>
-    <script img src="@Url.Content("/Content/assets/plugins/bootstrap/js/bootstrap.min.js")"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script img src="@Url.Content("/Contentjs/jquery.slimscroll.js")"></script>
-    <!--Wave Effects -->
-    <script img src="@Url.Content("/Content/js/waves.js")"></script>
-    <!--Menu sidebar -->
-    <script img src="@Url.Content("/Content/js/sidebarmenu.js")"></script>
-    <!--stickey kit -->
-    <script img src="@Url.Content("/Content/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js")"></script>
-    <script img src="@Url.Content("/Content/assets/plugins/sparkline/jquery.sparkline.min.js")"></script>
-    <!--Custom JavaScript -->
-    <script img src="@Url.Content("/Content/js/custom.min.js")"></script>
-    <!-- ============================================================== -->
-    <!-- This page plugins -->
-    <!-- ============================================================== -->
-    <!-- chartist chart -->
-    <script img src="@Url.Content("/Content/assets/plugins/chartist-js/dist/chartist.min.js")"></script>
-    <script img src="@Url.Content("/Content/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js")"></script>
-    <!--c3 JavaScript -->
-    <script img src="@Url.Content("/Content/assets/plugins/d3/d3.min.js")"></script>
-    <script img src="@Url.Content("/Content/assets/plugins/c3-master/c3.min.js")"></script>
-    <!-- Chart JS -->
-    <script img src="@Url.Content("/Content/js/dashboard1.js")"></script>
-    <!-- ============================================================== -->
-    <!-- Style switcher -->
-    <!-- ============================================================== -->
-    <script img src="@Url.Content("/Content/assets/plugins/styleswitcher/jQuery.style.switcher.js")"></script>
+    <div class="fixed-plugin">
+        <div class="dropdown show-dropdown">
+            <a href="#" data-toggle="dropdown">
+                <i class="fa fa-cog fa-2x"> </i>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="header-title"> Sidebar Filters</li>
+                <li class="adjustments-line">
+                    <a href="javascript:void(0)" class="switch-trigger active-color">
+                        <div class="badge-colors ml-auto mr-auto">
+                            <span class="badge filter badge-purple" data-color="purple"></span>
+                            <span class="badge filter badge-azure" data-color="azure"></span>
+                            <span class="badge filter badge-green" data-color="green"></span>
+                            <span class="badge filter badge-warning" data-color="orange"></span>
+                            <span class="badge filter badge-danger" data-color="danger"></span>
+                            <span class="badge filter badge-rose active" data-color="rose"></span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+                <li class="header-title">Sidebar Background</li>
+                <li class="adjustments-line">
+                    <a href="javascript:void(0)" class="switch-trigger background-color">
+                        <div class="ml-auto mr-auto">
+                            <span class="badge filter badge-black active" data-background-color="black"></span>
+                            <span class="badge filter badge-white" data-background-color="white"></span>
+                            <span class="badge filter badge-red" data-background-color="red"></span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+                <li class="adjustments-line">
+                    <a href="javascript:void(0)" class="switch-trigger">
+                        <p>Sidebar Mini</p>
+                        <label class="ml-auto">
+                            <div class="togglebutton switch-sidebar-mini">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="toggle"></span>
+                                </label>
+                            </div>
+                        </label>
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+                <li class="adjustments-line">
+                    <a href="javascript:void(0)" class="switch-trigger">
+                        <p>Sidebar Images</p>
+                        <label class="switch-mini ml-auto">
+                            <div class="togglebutton switch-sidebar-image">
+                                <label>
+                                    <input type="checkbox" checked="">
+                                    <span class="toggle"></span>
+                                </label>
+                            </div>
+                        </label>
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+                <li class="header-title">Images</li>
+                <li class="active">
+                    <a class="img-holder switch-trigger" href="javascript:void(0)">
+                        <img src="../assets/img/sidebar-1.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a class="img-holder switch-trigger" href="javascript:void(0)">
+                        <img src="../assets/img/sidebar-2.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a class="img-holder switch-trigger" href="javascript:void(0)">
+                        <img src="../assets/img/sidebar-3.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a class="img-holder switch-trigger" href="javascript:void(0)">
+                        <img src="../assets/img/sidebar-4.jpg" alt="">
+                    </a>
+                </li>
+                <li class="button-container">
+                    <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-rose btn-block btn-fill">Buy Now</a>
+                    <a href="https://demos.creative-tim.com/material-dashboard-pro/docs/2.1/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block">
+                        Documentation
+                    </a>
+                    <a href="https://www.creative-tim.com/product/material-dashboard" target="_blank" class="btn btn-info btn-block">
+                        Get Free Demo!
+                    </a>
+                </li>
+                <li class="button-container github-star">
+                    <span></span>
+                </li>
+                <li class="header-title">Thank you for 95 shares!</li>
+                <li class="button-container text-center">
+                    <button id="twitter" class="btn btn-round btn-twitter sharrre"><i class="fa fa-twitter"></i> · 45</button>
+                    <button id="facebook" class="btn btn-round btn-facebook sharrre"><i class="fa fa-facebook-f"></i> · 50</button>
+                    <br>
+                    <br>
+                </li>
+            </ul>
+        </div>
+    </div>
+   
+    <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+    <script src="../assets/demo/demo.js"></script>
+    <script>
+                $(document).ready(function() {
+                  $().ready(function() {
+                    $sidebar = $('.sidebar');
+
+                    $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+                    $full_page = $('.full-page');
+
+                    $sidebar_responsive = $('body > .navbar-collapse');
+
+                    window_width = $(window).width();
+
+                    fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+                    if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+                      if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+                        $('.fixed-plugin .dropdown').addClass('open');
+                      }
+
+                    }
+
+                    $('.fixed-plugin a').click(function(event) {
+                      // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+                      if ($(this).hasClass('switch-trigger')) {
+                        if (event.stopPropagation) {
+                          event.stopPropagation();
+                        } else if (window.event) {
+                          window.event.cancelBubble = true;
+                        }
+                      }
+                    });
+
+                    $('.fixed-plugin .active-color span').click(function() {
+                      $full_page_background = $('.full-page-background');
+
+                      $(this).siblings().removeClass('active');
+                      $(this).addClass('active');
+
+                      var new_color = $(this).data('color');
+
+                      if ($sidebar.length != 0) {
+                        $sidebar.attr('data-color', new_color);
+                      }
+
+                      if ($full_page.length != 0) {
+                        $full_page.attr('filter-color', new_color);
+                      }
+
+                      if ($sidebar_responsive.length != 0) {
+                        $sidebar_responsive.attr('data-color', new_color);
+                      }
+                    });
+
+                    $('.fixed-plugin .background-color .badge').click(function() {
+                      $(this).siblings().removeClass('active');
+                      $(this).addClass('active');
+
+                      var new_color = $(this).data('background-color');
+
+                      if ($sidebar.length != 0) {
+                        $sidebar.attr('data-background-color', new_color);
+                      }
+                    });
+
+                    $('.fixed-plugin .img-holder').click(function() {
+                      $full_page_background = $('.full-page-background');
+
+                      $(this).parent('li').siblings().removeClass('active');
+                      $(this).parent('li').addClass('active');
+
+
+                      var new_image = $(this).find("img").attr('src');
+
+                      if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                        $sidebar_img_container.fadeOut('fast', function() {
+                          $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                          $sidebar_img_container.fadeIn('fast');
+                        });
+                      }
+
+                      if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                        $full_page_background.fadeOut('fast', function() {
+                          $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                          $full_page_background.fadeIn('fast');
+                        });
+                      }
+
+                      if ($('.switch-sidebar-image input:checked').length == 0) {
+                        var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                        $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                        $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                      }
+
+                      if ($sidebar_responsive.length != 0) {
+                        $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+                      }
+                    });
+
+                    $('.switch-sidebar-image input').change(function() {
+                      $full_page_background = $('.full-page-background');
+
+                      $input = $(this);
+
+                      if ($input.is(':checked')) {
+                        if ($sidebar_img_container.length != 0) {
+                          $sidebar_img_container.fadeIn('fast');
+                          $sidebar.attr('data-image', '#');
+                        }
+
+                        if ($full_page_background.length != 0) {
+                          $full_page_background.fadeIn('fast');
+                          $full_page.attr('data-image', '#');
+                        }
+
+                        background_image = true;
+                      } else {
+                        if ($sidebar_img_container.length != 0) {
+                          $sidebar.removeAttr('data-image');
+                          $sidebar_img_container.fadeOut('fast');
+                        }
+
+                        if ($full_page_background.length != 0) {
+                          $full_page.removeAttr('data-image', '#');
+                          $full_page_background.fadeOut('fast');
+                        }
+
+                        background_image = false;
+                      }
+                    });
+
+                    $('.switch-sidebar-mini input').change(function() {
+                      $body = $('body');
+
+                      $input = $(this);
+
+                      if (md.misc.sidebar_mini_active == true) {
+                        $('body').removeClass('sidebar-mini');
+                        md.misc.sidebar_mini_active = false;
+
+                        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+                      } else {
+
+                        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+                        setTimeout(function() {
+                          $('body').addClass('sidebar-mini');
+
+                          md.misc.sidebar_mini_active = true;
+                        }, 300);
+                      }
+
+                      // we simulate the window Resize so the charts will get updated in realtime.
+                      var simulateWindowResize = setInterval(function() {
+                        window.dispatchEvent(new Event('resize'));
+                      }, 180);
+
+                      // we stop the simulation of Window Resize after the animations are completed
+                      setTimeout(function() {
+                        clearInterval(simulateWindowResize);
+                      }, 1000);
+
+                    });
+                  });
+                });
+    </script>
+    <!-- Sharrre libray -->
+    <script src="../assets/demo/jquery.sharrre.js"></script>
+    <script>
+                $(document).ready(function() {
+
+
+                  $('#facebook').sharrre({
+                    share: {
+                      facebook: true
+                    },
+                    enableHover: false,
+                    enableTracking: false,
+                    enableCounter: false,
+                    click: function(api, options) {
+                      api.simulateClick();
+                      api.openPopup('facebook');
+                    },
+                    template: '<i class="fab fa-facebook-f"></i> Facebook',
+                    url: 'https://demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html'
+                  });
+
+                  $('#google').sharrre({
+                    share: {
+                      googlePlus: true
+                    },
+                    enableCounter: false,
+                    enableHover: false,
+                    enableTracking: true,
+                    click: function(api, options) {
+                      api.simulateClick();
+                      api.openPopup('googlePlus');
+                    },
+                    template: '<i class="fab fa-google-plus"></i> Google',
+                    url: 'https://demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html'
+                  });
+
+                  $('#twitter').sharrre({
+                    share: {
+                      twitter: true
+                    },
+                    enableHover: false,
+                    enableTracking: false,
+                    enableCounter: false,
+                    buttons: {
+                      twitter: {
+                        via: 'CreativeTim'
+                      }
+                    },
+                    click: function(api, options) {
+                      api.simulateClick();
+                      api.openPopup('twitter');
+                    },
+                    template: '<i class="fab fa-twitter"></i> Twitter',
+                    url: 'https://demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html'
+                  });
+
+                  // Facebook Pixel Code Don't Delete
+                  ! function(f, b, e, v, n, t, s) {
+                    if (f.fbq) return;
+                    n = f.fbq = function() {
+                      n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    };
+                    if (!f._fbq) f._fbq = n;
+                    n.push = n;
+                    n.loaded = !0;
+                    n.version = '2.0';
+                    n.queue = [];
+                    t = b.createElement(e);
+                    t.async = !0;
+                    t.src = v;
+                    s = b.getElementsByTagName(e)[0];
+                    s.parentNode.insertBefore(t, s)
+                  }(window,
+                    document, 'script', '../../../connect.facebook.net/en_US/fbevents.js');
+
+                  try {
+                    fbq('init', '111649226022273');
+                    fbq('track', "PageView");
+
+                  } catch (err) {
+                    console.log('Facebook Track Error:', err);
+                  }
+
+                });
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=111649226022273&amp;ev=PageView&amp;noscript=1" />
+    </noscript>
+    <script>
+                $(document).ready(function() {
+                  // Javascript method's body can be found in assets/js/demos.js
+                  md.initDashboardPageCharts();
+
+                  md.initVectorMap();
+
+                });
+    </script>
 
 
 
+    <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 22 Oct 2019 20:19:44 GMT -->
 
-
-
-
-
-
-
-    <footer class="footer">
-        www.esprit.tn
-    </footer>
-
+    <div class="jvectormap-tip"></div>
 </body>
+
 </html>

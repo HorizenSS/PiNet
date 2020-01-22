@@ -13,9 +13,11 @@
     {
         [Key]
         public int Id { get; set; }
-
+        [StringLength(255)]
         public string Date { get; set; }
+        [StringLength(255)]
         public string ArticlesDetails { get; set; }
+        [StringLength(255)]
         public string Totale { get; set; }
     }
 }

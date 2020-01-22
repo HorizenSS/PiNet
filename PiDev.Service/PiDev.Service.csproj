@@ -70,7 +70,13 @@
     <Compile Include="Class1.cs" />
     <Compile Include="IServices\ISkillService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IEmployeeSkillService.cs" />
+    <Compile Include="Services\IEmployeService.cs" />
     <Compile Include="Services\jobOfferService.cs" />
+    <Compile Include="Services\EmployeeSkillService .cs" />
+    <Compile Include="Services\EmployeService.cs" />
+    <Compile Include="Services\jobSkillsService.cs" />
+    <Compile Include="Services\TargetSkillService.cs" />
     <Compile Include="Services\SkillService.cs" />
     <Compile Include="Services\qualificationService.cs" />
     <Compile Include="TicketOCR\ITicketOCRService.cs" />

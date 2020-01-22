@@ -17,10 +17,7 @@ namespace Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<employe>()
-                .Property(e => e.DTYPE)
-                .IsUnicode(false);
-
+          
             modelBuilder.Entity<employe>()
                 .Property(e => e.Address)
                 .IsUnicode(false);

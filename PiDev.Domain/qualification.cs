@@ -14,22 +14,24 @@ namespace PiDev.Domain
     public class qualification
     {
 
-
+        [StringLength(255)]
         [Key]
         public string Name { get; set; }
+        [StringLength(255)]
         public string Description { get; set; }
         public int idJobOffer { get; set; }
         public Nullable<System.DateTime> DeadLine { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
-        public string state { get; set; }
+        [StringLength(255)]
+        public String state { get; set; }
         public Nullable<int> cin { get; set; }
         public virtual jobOffer JobOffer { get; set; }
         public virtual employe Employe { get; set; }
     }
-
+   
     public enum State
     {
-        ToDo, Doing, Done
+        NotAquired, Learning, Mastered
     }
   
 }

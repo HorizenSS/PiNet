@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "EmployeIndex";
+    Layout = "~/Views/Shared/_LayoutAdvyTeam.cshtml";
+}
+
+<h2>EmployeIndex</h2>
+
+<a href="@Url.Action("Index" , "jobOffers")">
+    <button type="button" class="btn btn-primary btn-lg btn-block">job Offers portal </button>
+</a>
+
+<br />
+<br />
+<a href="@Url.Action("Create" , "EmployeeSkill")">
+    <button type="button" class="btn btn-primary btn-lg btn-block">manage your skill-set</button>
+</a>
+<br />view your job
+<br />
+<a href="@Url.Action("PassedList" , "jobOffers")">
+    <button type="button" class="btn btn-primary btn-lg btn-block">view your job-goal</button>
+</a>

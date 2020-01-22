@@ -24,7 +24,28 @@ namespace PiDev.web.Controllers
         // GET: qualification
         public ActionResult Index()
         {
-            return View();
+            var x = qualificationservice.GetMany();
+            List<qualification> pr = new List<qualification>();
+            foreach (var item in x)
+            {
+                pr.Add(
+                    new qualification
+                    {
+                        Name = item.Name,
+                        Description=item.Description,
+                        StartDate=item.StartDate,
+                        DeadLine=item.DeadLine,
+                        JobOffer=item.JobOffer,
+                        state=item.state,
+                        Employe=item.Employe,
+                        idJobOffer=item.idJobOffer,
+                        cin=item.cin
+                
+                    });
+
+            }
+
+            return View(pr);
         }
 
         public ActionResult Allqualifications(int idJobOffer)
@@ -55,12 +76,12 @@ namespace PiDev.web.Controllers
 
 
 
-            var idP = Session["idJobOffer"] as List<int>;
+            var idP = 1;
             List<string> ListState = new List<string> { "ToLearn", "Learning", "Mastered" };
             ViewBag.x = ListState.ToSelectItem();
 
             qualificationVM qualificationVM = new qualificationVM();
-            qualificationVM.jobname = qualificationservice.FindNamejobOfferById(idP.First());
+            qualificationVM.jobname = qualificationservice.FindNamejobOfferById(idP);
 
             return View(qualificationVM);
         }

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "HRIndex";
+    Layout = "~/Views/Shared/_LayoutAdvyTeam.cshtml";
+}
+
+<h2>HRIndex</h2>
+
+<a href="@Url.Action("Create" , "jobOffers")">
+    <button type="button" class="btn btn-primary btn-lg btn-block">Add a job offer</button>
+</a>
+
+<br />
+<br />
+<a href="@Url.Action("Index" , "EmployeeSkill")">
+    <button type="button" class="btn btn-primary btn-lg btn-block">view employe matrix</button>
+</a>
+<br />
+<br />
+<a href="@Url.Action("Index" , "Skill")">
+    <button type="button" class="btn btn-primary btn-lg btn-block">manage Skills</button>
+</a>
+<br />
+<br />
+<a href="@Url.Action("Index" , "Employe")">
+    <button type="button" class="btn btn-primary btn-lg btn-block">manage Employes</button>
+</a>

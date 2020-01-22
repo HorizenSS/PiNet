@@ -8,5 +8,6 @@ namespace Data
 {
     public class Class1
     {
+       // SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());
     }
 }

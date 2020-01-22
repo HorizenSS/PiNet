@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Data;
-using PiDev.ServicePattern;
+
 using PiDev.Domain;
-using Data.Infrastructures;
+
 
 namespace Service
 {

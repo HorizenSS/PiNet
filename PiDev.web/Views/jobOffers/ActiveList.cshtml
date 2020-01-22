@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "ActiveList";
+    Layout = "~/Views/Shared/_LayoutAdvyTeam.cshtml";
 }
 
 <h2>ActiveList</h2>
@@ -23,8 +24,7 @@
                         <tr>
 
 
-                            <th><i class="fa fa-bookmark"></i>  Name </th>
-
+                         
 
 
 
@@ -59,9 +59,9 @@
                                     </a>
 
 
-                                    <a href="@Url.Action("AllTasks" ,"Task" , new { idProject = item.IdJobOffer})">
+                                    <a href="@Url.Action("DeadlineVerification" ,"TargetSkills" , new { IdJobOffer = item.IdJobOffer})">
 
-                                        <span class="label label-info label-mini">Tasks</span>
+                                        <span class="label label-info label-mini">Deadline Verification</span>
                                     </a>
                                 </td>
                             </tr>

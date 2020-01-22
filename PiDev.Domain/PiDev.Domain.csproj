@@ -72,8 +72,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmployeeSkill.cs" />
     <Compile Include="employe.cs" />
     <Compile Include="JobOffer.cs" />
+    <Compile Include="jobofferskills.cs" />
+    <Compile Include="TargetSkill.cs" />
     <Compile Include="qualification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="skill.cs" />

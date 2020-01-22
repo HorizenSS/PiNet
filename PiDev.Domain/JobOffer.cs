@@ -13,25 +13,25 @@ namespace PiDev.Domain
     {
         public jobOffer()
         {
-            this.Qualifications = new List<qualification>();
+           
         }
         [Key]
         public int IdJobOffer { get; set; }
+        [StringLength(255)]
         public string Description { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
+        [StringLength(255)]
         public string Name { get; set; }
         public int salary { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
-     
 
+        [StringLength(255)]
         public string DocumentsUrl { get; set; }
-       
-        public Nullable<int> cin { get; set; }
-       
-       
-        public virtual ICollection<qualification> Qualifications { get; set; }
-        public virtual employe employe { get; set; }
-   
+
+
+        public ICollection<skill> Skills { get; set; }
+
+
 
 
 

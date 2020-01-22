@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace PiDev.web.Models
 {
@@ -20,11 +21,12 @@ namespace PiDev.web.Models
 
         public string DocumentsUrl { get; set; }
 
-        public Nullable<int> cin { get; set; }
 
 
-        public virtual ICollection<qualification> Qualifications { get; set; }
-        public virtual employe employe { get; set; }
+
+        public IEnumerable<SelectListItem> Skills { get; set; }
+        public List<int> SelectedSkillIds { get; set; }
+
 
     }
 }

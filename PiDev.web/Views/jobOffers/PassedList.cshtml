@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "PassedList";
+    Layout = "~/Views/Shared/_LayoutAdvyTeam.cshtml";
 }
 
 <h2>PassedList</h2>
@@ -23,7 +24,7 @@
                         <tr>
 
 
-                            <th><i class="fa fa-bookmark"></i>  Name </th>
+                            <th><i class="fa fa-bookmark"></i>  bookmark </th>
 
 
 
@@ -84,6 +85,6 @@
 
 }
 <a href="@Url.Action("ExportPDF" , "jobOffers")">
-    <button type="button" class="btn btn-primary btn-lg btn-block">Export PDF</button>
+    <button type="button" class="btn btn-primary btn-lg btn-block">Export as PDF</button>
 </a>
 

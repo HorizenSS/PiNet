@@ -1,24 +1,31 @@
-﻿@model PiDev.Domain.jobOffer
+﻿@model PiDev.Domain.TargetSkill
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdvyTeam.cshtml";
+}
+
+<h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>jobOffer</h4>
+    <h4>TargetSkill</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.Employe.email)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            @Html.DisplayFor(model => model.Employe.email)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EndDate)
+            @Html.DisplayNameFor(model => model.JobOffer.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EndDate)
+            @Html.DisplayFor(model => model.JobOffer.Name)
         </dd>
 
         <dt>
@@ -30,11 +37,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.salary)
+            @Html.DisplayNameFor(model => model.Description)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.salary)
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeadLine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeadLine)
         </dd>
 
         <dt>
@@ -46,19 +61,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DocumentsUrl)
+            @Html.DisplayNameFor(model => model.state)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DocumentsUrl)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.cin)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.cin)
+            @Html.DisplayFor(model => model.state)
         </dd>
 
     </dl>

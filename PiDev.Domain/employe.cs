@@ -12,12 +12,15 @@ namespace PiDev.Domain
 
         public employe()
         {
-            this.jobOffer = new List<jobOffer>();
-            this.qualification = new List<qualification>();
+           
+            this.EmployeeSkills = new List<EmployeeSkill>();
         }
+
+
+  
         [Required]
-        [StringLength(31)]
-        public string DTYPE { get; set; }
+        [StringLength(255)]
+        public string password { get; set; }
 
         [Key]
         public int cin { get; set; }
@@ -26,7 +29,7 @@ namespace PiDev.Domain
         public string Address { get; set; }
 
         public DateTime? birthDate { get; set; }
-
+        [Required]
         [StringLength(255)]
         public string email { get; set; }
 
@@ -49,7 +52,7 @@ namespace PiDev.Domain
 
         public int? resumeId { get; set; }
 
-        public virtual ICollection<jobOffer> jobOffer { get; set; }
-        public virtual ICollection<qualification> qualification { get; set; }
+        public ICollection<EmployeeSkill> EmployeeSkills { get; set; }
+      
     }
 }

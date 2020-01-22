@@ -11,6 +11,12 @@ using PiDev.Service;
 using PiDev.Domain;
 using System.IO;
 using Rotativa;
+using PiDev.web.Models;
+using Data;
+using System.Collections;
+using Google.Protobuf.Collections;
+using PiDev.Service.Services;
+using PiDev.ServicePattern;
 
 namespace PiDev.web.Controllers
 {
@@ -18,18 +24,19 @@ namespace PiDev.web.Controllers
     {
 
         jobOfferService Pservice = null;
-        qualificationService Tservice = null;
+        SkillService Tservice = null;
 
         public jobOffersController()
         {
             Pservice = new jobOfferService();
-            Tservice = new qualificationService();
+            Tservice = new SkillService();
+            jobSkillsService v = new jobSkillsService();
         }
         // GET: jobOffer
         public ActionResult AlljobOffer()
         {
             var jobOffer = Pservice.GetMany();
-
+          
             List<jobOffer> pr = new List<jobOffer>();
             foreach (var item in jobOffer)
             {
@@ -104,9 +111,21 @@ namespace PiDev.web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             jobOffer p = Pservice.GetById(id);
+            jobSkillsService v = new jobSkillsService();
+           var sk =v.GetMany().Where(t => t.jobOffer_IdJobOffer == 5).Select(t => t.skill_skillId).ToList();
 
+            Console.WriteLine(sk);
+            List<int> vs = new List<int>();
+            vs.Add(1);
+            vs.Add(2);
 
+            // foreach (int a in vs)
+            //  {
 
+            List<skill> skills = new List<skill>();
+                skills.Add(new skill(1, "coding","what"));
+            ViewBag.result = skills;
+            //    };
 
             if (p == null)
             {
@@ -119,18 +138,22 @@ namespace PiDev.web.Controllers
         // GET: jobOffer/Create
         public ActionResult Create()
         {
-           
-
-           
-          
-           
+            var dm = new jobOfferVM();
+            dm.Skills = Tservice.GetMany().
+                          Select(av =>
+                          new SelectListItem
+                          {
+                              //     Selected = (prod.ProducteurId == selectedId),
+                              Text = av.name + " " + av.category,
+                              Value = av.skillId.ToString()
+                          });
+            return View(dm);
    
-            return View();
         }
 
         // POST: jobOffer/Create
         [HttpPost]
-        public ActionResult Create(jobOffer p, HttpPostedFileBase doc)
+        public ActionResult Create(jobOfferVM p, HttpPostedFileBase doc)
         {
 
             if (!ModelState.IsValid || doc == null || doc.ContentLength == 0)
@@ -172,8 +195,13 @@ namespace PiDev.web.Controllers
             {
                 return Create();
             }
-
-
+            List<skill> sk = new List<skill>();
+            foreach (var selectedId in p.SelectedSkillIds)
+            {
+               
+          sk.Add(Tservice.GetById(selectedId));
+            }
+           
             p.DocumentsUrl = doc.FileName;
             jobOffer pr = new jobOffer
             {
@@ -181,7 +209,7 @@ namespace PiDev.web.Controllers
                 Description = p.Description,
                 Name = p.Name,
                 salary = p.salary,
-              
+                Skills=sk,
                 EndDate = p.EndDate,
                 StartDate = p.StartDate,
                 DocumentsUrl = p.DocumentsUrl,
@@ -371,6 +399,9 @@ namespace PiDev.web.Controllers
         }
 
 
+
+       
+       
     }
 }
 

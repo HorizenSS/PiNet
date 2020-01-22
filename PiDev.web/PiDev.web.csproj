@@ -155,8 +155,8 @@
     <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
@@ -197,6 +197,12 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.4\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
@@ -295,25 +301,30 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EmployeController.cs" />
+    <Compile Include="Controllers\EmployeeSkillController.cs" />
+    <Compile Include="Controllers\EmployeeSkillsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\jobController.cs" />
     <Compile Include="Controllers\jobOffersController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjetController.cs" />
     <Compile Include="Controllers\qualificationController.cs" />
     <Compile Include="Controllers\ShinyController.cs" />
     <Compile Include="Controllers\SkillController.cs" />
+    <Compile Include="Controllers\TargetSkillsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\ExtensionMethodState.cs" />
     <Compile Include="Helper\ExtensionProjectName.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\EmployeeSkillVM.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\jobOfferVM.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProjectModels.cs" />
     <Compile Include="Models\qualificationVM.cs" />
-    <Compile Include="Models\ResumeVM.cs" />
     <Compile Include="Models\SkillVM.cs" />
     <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1232,7 +1243,6 @@
     <Content Include="Views\jobOffers\PassedList.cshtml" />
     <Content Include="Views\jobOffers\UploadFile.cshtml" />
     <Content Include="Views\jobOffers\_DisplayProject.cshtml" />
-    <Content Include="Views\jobOffers\View.cshtml" />
     <Content Include="Views\jobOffers\AlljobOffer.cshtml" />
     <Content Include="Views\qualification\Allqualifications.cshtml" />
     <Content Include="Views\qualification\Create.cshtml" />
@@ -1240,12 +1250,38 @@
     <Content Include="Views\qualification\Edit.cshtml" />
     <Content Include="Views\qualification\qualificationStat.cshtml" />
     <Content Include="Views\Shiny\Index.cshtml" />
+    <Content Include="Views\qualification\Index.cshtml" />
+    <Content Include="Views\uuu\Create.cshtml" />
+    <Content Include="Views\uuu\Index.cshtml" />
+    <Content Include="Views\EmployeeSkill\Index.cshtml" />
+    <Content Include="Views\EmployeeSkill\Create.cshtml" />
+    <Content Include="Views\Employe\Create.cshtml" />
+    <Content Include="Views\Employe\Delete.cshtml" />
+    <Content Include="Views\Employe\Details.cshtml" />
+    <Content Include="Views\Employe\Edit.cshtml" />
+    <Content Include="Views\Employe\Index.cshtml" />
+    <Content Include="Views\Employe\Login.cshtml" />
+    <Content Include="Views\Employe\ManagerIndex.cshtml" />
+    <Content Include="Views\Employe\HRIndex.cshtml" />
+    <Content Include="Views\Employe\EmployeIndex.cshtml" />
+    <Content Include="Views\EmployeeSkill\Edit.cshtml" />
+    <Content Include="Views\TargetSkills\Create.cshtml" />
+    <Content Include="Views\TargetSkills\Delete.cshtml" />
+    <Content Include="Views\TargetSkills\Details.cshtml" />
+    <Content Include="Views\TargetSkills\Edit.cshtml" />
+    <Content Include="Views\TargetSkills\Index.cshtml" />
+    <Content Include="Views\TargetSkills\qualificationStat.cshtml" />
+    <Content Include="Views\TargetSkills\DeadlineVerification.cshtml" />
+    <Content Include="Views\EmployeeSkills\Create.cshtml" />
+    <Content Include="Views\EmployeeSkills\Delete.cshtml" />
+    <Content Include="Views\EmployeeSkills\Details.cshtml" />
+    <Content Include="Views\EmployeeSkills\Edit.cshtml" />
+    <Content Include="Views\EmployeeSkills\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\plugins\images\users\" />
     <Folder Include="Content\Upload\" />
-    <Folder Include="Views\Projet\" />
     <Folder Include="Views\Task\" />
   </ItemGroup>
   <ItemGroup>
@@ -1271,6 +1307,10 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{D2A63E9A-7E51-40D6-8F0B-24ACFC1946C9}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PiDev.Domain\PiDev.Domain.csproj">
       <Project>{449dc901-2878-4fb5-b81e-8cdc1aeecea8}</Project>
       <Name>PiDev.Domain</Name>

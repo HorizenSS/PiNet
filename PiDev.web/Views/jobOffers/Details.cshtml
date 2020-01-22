@@ -3,12 +3,13 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdvyTeam.cshtml";
 }
 
 <h2>Details</h2>
 
 <div>
-    <h4>project</h4>
+    <h4>job offer skills</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -59,7 +60,7 @@
             @Html.DisplayFor(model => model.StartDate)
         </dd>
 
-    
+
         <dt>
             @Html.DisplayNameFor(model => model.DocumentsUrl)
         </dt>
@@ -69,12 +70,22 @@
         </dd>
 
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Skills)
+        </dt>
+
+        @foreach (var item in ViewBag.result)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item)
+                </td>
+            </tr>
 
 
-
-
-
-    </dl>
+        }
+        </dl>
+    
 </div>
 <!-- LikeBtn.com BEGIN -->
 <span class="likebtn-wrapper" data-identifier="item_1"></span>
